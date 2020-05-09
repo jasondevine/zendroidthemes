@@ -1,0 +1,51 @@
+
+
+.stickybuy {
+	position: fixed;
+	display: flex;
+	right: 0;
+	top: 20%;
+	color: #333;
+	color: #fefefe;
+	width: 8rem;
+	padding: 1rem;
+	font-size: 1.1rem;
+	border-radius: .2em;
+	z-index: 10000;
+	box-shadow: $box2;
+	background: linen;
+	background: $inbox;
+	transform: translateX(5rem);
+	transition: $mid-bounce;
+
+	font-family: var(--navigation-font);
+
+	& span {
+		display: inline-block;
+		vertical-align: middle;
+		margin-left: 1rem;
+		line-height: 1.2rem;
+		margin-top: .1rem;
+		letter-spacing: -0.05em;
+	}
+
+	& .fa {
+		font-size: 1rem;
+		line-height: 1rem;
+		// color: $tumblr;
+	}
+
+	&:hover {
+		// background: linen;
+		transform: translateX(1rem);
+	}
+}
+
+
+
+
+
+
+
+
+

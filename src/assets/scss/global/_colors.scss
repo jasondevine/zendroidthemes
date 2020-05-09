@@ -1,0 +1,177 @@
+
+
+
+
+/*=================================
+=            gradients            =
+=================================*/
+
+
+
+
+$cheer-up-emo-kid: linear-gradient(to left, #556270 , #FF6B6B);
+$bloody-mary: linear-gradient(to top, #ff512f, #dd2476);
+$mango-pulp: linear-gradient(to top, #f09819, #edde5d);
+$intuitive-purple: linear-gradient(to top, #da22ff, #9733ee);
+$sexy-blue: linear-gradient(to top, #2193b0, #6dd5ed);
+$amethyst: linear-gradient(to bottom right, #9D50BB , #6E48AA);
+$amethyst-transparent: linear-gradient(to bottom right, rgba(#9D50BB, 0.05) , rgba(#6E48AA, 1));
+$neon-life: linear-gradient(to top, #B3FFAB , #12FFF7);
+$neon-life-transparent: linear-gradient(to left, rgba(#B3FFAB,0.25) , rgba(#12FFF7,0.45));
+$red-mist: linear-gradient(to left, #000000 , #e74c3c);
+$starfall: linear-gradient(to left, #F0C27B , #4B1248);
+// $calm-darya: linear-gradient(to left, #5f2c82 , #49a09d);
+$haikus: linear-gradient(to top, #fd746c, #ff9068);
+$haikus-transparent: linear-gradient(to right, rgba(#fd746c, 0.4), rgba(#ff9068, 0.6));
+$inbox: linear-gradient(to right, #457fca, #5691c8);
+$blush: linear-gradient(to right, #b24592, #f15f79);
+$backtothefuture: linear-gradient(to right, #c02425, #f0cb35);
+$backtothefuture-transparent: linear-gradient(to right, rgba(#c02425,0.15), rgba(#f0cb35,0.25));
+$poncho: linear-gradient(135deg, #403a3e, #be5869);
+$timber: linear-gradient(to right, #fc00ff, #00dbde);
+$timber-transparent: linear-gradient(to right, rgba(#fc00ff,0.15), rgba(#00dbde,0.25));
+$fresh-turboscent: linear-gradient(to bottom, #f1f2b5, #135058);
+$virgin-america: linear-gradient(to right, #7b4397, #dc2430);
+$virgin-america-transparent: linear-gradient(to right, rgba(#7b4397, 0.15),rgba(#dc2430, 0.25));
+$passion: linear-gradient(to bottom, #e53935, #e35d5b);
+$subu: linear-gradient(to bottom, #0cebeb, #20e3b2, #29ffc6);
+$ibiza-sunset: linear-gradient(to right, #ee0979, #ff6a00);
+$ibiza-sunset-transparent: linear-gradient(to right, rgba(#ee0979,0.15), rgba(#ff6a00,0.15));
+$pastel-orange-at-the-sun: linear-gradient(to bottom, #ffcc33, #ffb347);
+$pastel-orange-at-the-sun-transparent: linear-gradient(110deg, rgba(#ffcc33, 0.6), rgba(#ffb347, 0.6));
+$csstricks: linear-gradient(to right,#ff8a00,#da1b60);
+$blush2: linear-gradient(to right, #b24592, #da1b60);
+$csstricks2: linear-gradient(to left,#ff8a00,#da1b60);
+
+$fluke: linear-gradient(336deg, rgba(242,181,37,1) 0%, rgba(233,173,148,1) 100%);
+$fluke2: linear-gradient(170deg, rgba(9,182,247,1) 0%, rgba(109, 128, 202, 1) 100%);
+$fluke3: linear-gradient(170deg, #59C9F4 0%, #016E98 100%);
+$fluke2-transparent: linear-gradient(170deg, rgba(9,182,247,0.65) 0%, rgba(109, 128, 202, 0.65) 100%);
+
+$feisar: linear-gradient(to bottom, rgba(255,181,97,1) 0%, rgba(244,134,128,1) 31%, rgba(236,101,150,1) 53%, rgba(140,83,103,1) 80%, rgba(69,69,69,1) 100%);
+
+$ash: linear-gradient(to top, #3f4c6b, #606c88); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+$earthly: linear-gradient(to top, #DBD5A4, #649173); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+$reef: linear-gradient(to top, #3a7bd5, #00d2ff); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+$reef-transparent: linear-gradient(to top, rgba(#3a7bd5, 0.8), rgba(#00d2ff,0.58));
+$alchemy-green-gradient: linear-gradient(to top, rgba(#8fa255, 1), rgba(#a5c950,1));
+$engine: linear-gradient(110deg,#e1f549,#29d0be,#6cb8ea,#ff5959);
+$full-engine: linear-gradient(110deg, #e1f549,#85E384,#29d0be,#6cb8ea,#6D80CA,#6E48AA,#B75182,#ff5959);
+$full-engine-transparent: linear-gradient(110deg, rgba(#e1f549, 0.6),rgba(#85E384, 0.6),rgba(#29d0be, 0.6),rgba(#6cb8ea, 0.6),rgba(#6D80CA, 0.6),rgba(#6E48AA, 0.6),rgba(#B75182, 0.6),rgba(#ff5959, 0.6));
+$alchemy-full-gradient: linear-gradient(110deg, #FFB347, #A4AE43, #559D5D, #028373, #0A6671, #2F4858);
+$engine-transparent: linear-gradient(110deg,rgba(#e1f549, 0.6),rgba(#29d0be, 0.6),rgba(#6cb8ea, 0.6),rgba(#ff5959, 0.6));
+
+
+$landing-gradient: linear-gradient(to bottom, rgba(51, 51, 51, 0) 0%, rgba(51, 51, 51, 0.6) 30%, rgba(51, 51, 51, 0.85) 100%);
+$landing-gradient-2: linear-gradient(to bottom, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.6) 30%, rgba(0, 0, 0, 0.85) 100%);
+$landing-gradient-3: linear-gradient(to top, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.5) 70%, rgba(0, 0, 0, 0.75) 100%);
+$smokebox: linear-gradient(to top, rgba(51, 51, 51, 0.6) 20%, rgba(51, 51, 51, 0.8) 50%, rgba(51, 51, 51, 0.95) 100%);
+$smokebox2: linear-gradient(to top, rgba(51, 51, 51, 0.5) 20%, rgba(51, 51, 51, 0.7) 50%, rgba(51, 51, 51, 0.95) 100%);
+$smokebox3: linear-gradient(to top, rgba(51, 51, 51, 0.75) 20%, rgba(51, 51, 51, 0.65) 30%, rgba(51, 51, 51, 0.25) 60%);
+
+
+
+
+
+
+
+$first-menu-item-colour: #e1f549;
+// $second-menu-item-colour: #85E384;
+$second-menu-item-colour: #29d0be;
+$third-menu-item-colour: #6cb8ea;
+// $fifth-menu-item-colour: #6D80CA;
+$fourth-menu-item-colour: #6E48AA;
+$fifth-menu-item-colour: #B75182;
+$eighth-menu-item-colour: #ff5959;
+
+
+
+
+$accent-color: #ffb347;
+
+
+
+$colour-yellowgreen: #7BA428;
+$colour-blue: #2980b9;
+$colour-aqua: #24b9d0;
+$colour-magenta: #FF00FF;
+$colour-coral: #ff7f50;
+$colour-logored: #e74c3c;
+$wiredBlue: #b9ecff;
+$colour-indigoPink: #FF4081;
+$twitter: #00aced;
+$facebook: #3b5998;
+$googleplus: #dd4b39;
+$pinterest: #cb2027;
+$linkedin: #007bb6;
+$youtube: #bb0000;
+$vimeo: #aad450;
+$tumblr: #32506d;
+$instagram: #517fa4;
+$flickr: #ff0084;
+$dribbble: #ea4c89;
+$quora: #a82400;
+$foursquare: #0072b1;
+$forrst: #5B9A68;
+$vk: #45668e;
+$wordpress: #21759b;
+$stumbleupon: #EB4823;
+$yahoo: #7B0099;
+$blogger: #fb8f3d;
+$soundcloud: #ff3a00;
+$reddit: #ff5700;
+$cadburys-purple: #6e07fe;
+$medium-light: darken(#d7efee, 15%);
+
+
+
+.white {
+	color: #fff!important;
+}
+
+
+
+$background-color: var(--background-color);
+$main-text-colour: var(--main-body-font-color);
+$heading-colour: var(--headline-font-color);
+$selection-colour: #b4d5fe;
+
+$header-background-color: var(--header-background-color);
+
+$lightnavcolor: var(--light-nav-color);
+$darknavcolor: var(--dark-nav-color);
+
+$switchnavcolor: var(--offcanvas-text-colour);
+
+$lightheaderbackground: #fefefe;
+$darkheaderbackground: #222;
+
+
+
+/*=================================
+=           backgrounds           =
+=================================*/
+
+// Grey dot pegboard effect
+@mixin pegboard-background {
+background: linear-gradient(90deg,$background-color 20px,transparent 1%) center,linear-gradient($background-color 20px,transparent 1%) center,#c7c4c4;
+background-size: 22px 22px;
+}
+
+// Colourful dot pegboard effect
+@mixin colourful-pegboard-background {
+background: linear-gradient(90deg,#ff0084 20px,transparent 1%) center, linear-gradient(#ff0084 20px,transparent 1%) center, #fff;
+background-size: 22px 22px;
+}
+
+@mixin diagonal-stripe($background1,$background2) {
+	background-color: ($background1);
+	background-image: repeating-linear-gradient(45deg, transparent, transparent 8px, $background2 8px, $background2 16px);
+}
+
+@mixin diagonal-stripe-faint($background) {
+	background-color: $background;
+	background-image: repeating-linear-gradient(45deg, transparent, transparent 8px, rgba(255,255,255,.2) 8px, rgba(255,255,255,.2) 16px);
+}
+
+

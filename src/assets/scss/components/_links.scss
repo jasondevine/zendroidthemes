@@ -1,0 +1,118 @@
+// Apply outline styles only when input method is keyboard
+// remove :focus style via What Input using progressive enhancement
+// so :focus isn't left broken if JavaScript fails
+
+[data-whatinput='mouse'] a:focus,
+button:focus
+[data-whatinput='touch'] a:focus,
+button:focus
+{
+    outline: none;
+}
+
+a
+{
+    transition: $mid-ease;
+
+    color: inherit;
+
+    .entry-content p.small &
+    {
+        text-decoration: underline;
+
+        text-decoration-skip-ink: auto;
+    }
+}
+
+
+a
+{
+    .entry-content p:not(.small) &
+    {
+        position: relative;
+
+        display: inline-block;
+
+        color: var(--link-color);
+        &:hover
+        {
+            color: var(--link-hover-color);
+        }
+        &:visited
+        {
+            color: var(--link-visited-color);
+        }
+        &:after
+        {
+            position: absolute;
+            z-index: -1;
+            right: 0;
+            left: 0;
+
+            display: block;
+
+            width: auto;
+            height: 10px;
+
+            content: '';
+            transition: $mid-ease;
+            transform: translateY(-.45rem);
+
+            opacity: .1;
+            border-top: 10px solid var(--link-color);
+        }
+    }
+}
+
+.single > .entry-content
+{
+    .post &
+    {
+        p
+        {
+            a
+            {
+                position: relative;
+
+                display: inline-block;
+
+                color: var(--link-color);
+                &:after
+                {
+                    position: absolute;
+                    z-index: -1;
+                    right: 0;
+                    left: 0;
+
+                    display: block;
+
+                    width: auto;
+                    height: 10px;
+
+                    content: '';
+                    transition: $mid-ease;
+                    transform: translateY(-.45rem);
+
+                    opacity: .1;
+                    border-top: 10px solid var(--link-color);
+                }
+                &:hover
+                {
+                    &:after
+                    {
+                        top: 0;
+
+                        opacity: 1;
+                    }
+                }
+            } // a
+        } // end p
+    } // end .post
+} // end .entry-content
+
+
+
+
+
+
+

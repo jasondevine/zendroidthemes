@@ -1,0 +1,101 @@
+{
+  "name": "zendroidPress",
+  "title": "zendroidPress",
+  "version": "1.0.0",
+  "description": "zendroidPress is forked from the WordPress starter theme 'FoundationPress' by Ole Fredrik Lie, which in turn uses Foundation 6 by Zurb as a framework",
+  "homepage": "https://www.zendroidthemes.com",
+  "license": "MIT",
+  "main": "gulpfile.js",
+  "scripts": {
+    "start": "gulp",
+    "dev": "gulp build --dev",
+    "build": "gulp build --production",
+    "package": "gulp package --production",
+    "phpcs": "gulp phpcs",
+    "phpcbf": "gulp phpcbf"
+  },
+  "keywords": [
+    "zendroidPress",
+    "FoundationPress",
+    "WordPress",
+    "starter theme",
+    "Foundation",
+    "semantic",
+    "mobile first",
+    "customizable",
+    "responsive"
+  ],
+  "dependencies": {
+    "aos": "^2.3.4",
+    "foundation-sites": "^6.5.3",
+    "hamburgers": "^1.1.3",
+    "isotope-layout": "^3.0.6",
+    "jquery": "~3.0.0",
+    "motion-ui": "~1.2.2",
+    "sal.js": "^0.6.2",
+    "what-input": "^4.1.3"
+  },
+  "devDependencies": {
+    "ansi-colors": "^1.0.1",
+    "babel-core": "^6.24.1",
+    "babel-loader": "^7.1.2",
+    "babel-preset-env": "^1.7.0",
+    "babel-preset-es2015": "^6.3.13",
+    "babel-preset-stage-2": "^6.24.1",
+    "babel-register": "^6.7.2",
+    "beepbeep": "^1.3.0",
+    "browser-sync": "^2.10.0",
+    "dateformat": "^3.0.2",
+    "fancy-log": "^1.3.2",
+    "gulp": "4.0",
+    "gulp-autoprefixer": "^3.1.0",
+    "gulp-babel": "^6.1.2",
+    "gulp-clean-css": "^3.3.1",
+    "gulp-cli": "^1.2.1",
+    "gulp-concat": "^2.5.2",
+    "gulp-cssnano": "^2.1.3",
+    "gulp-extname": "^0.2.0",
+    "gulp-filter": "^6.0.0",
+    "gulp-if": "^2.0.0",
+    "gulp-imagemin": "^4.1.0",
+    "gulp-load-plugins": "^1.1.0",
+    "gulp-merge-media-queries": "^0.2.1",
+    "gulp-notify": "^3.2.0",
+    "gulp-penthouse": "^0.2.0",
+    "gulp-phpcbf": "^0.1.2",
+    "gulp-phpcs": "^2.1.0",
+    "gulp-plumber": "^1.2.1",
+    "gulp-rename": "^1.4.0",
+    "gulp-rev": "^8.0.0",
+    "gulp-sass": "^3.1.0",
+    "gulp-sourcemaps": "^1.12.1",
+    "gulp-terser": "^1.1.6",
+    "gulp-uglify": "^1.2.0",
+    "gulp-uglifycss": "^1.1.0",
+    "gulp-zip": "^4.0.0",
+    "js-yaml": "^3.4.6",
+    "panini": "^1.3.0",
+    "rimraf": "^2.4.3",
+    "style-sherpa": "^1.0.0",
+    "terser-webpack-plugin": "^1.2.1",
+    "uglify-es": "^3.3.9",
+    "uglifyjs-webpack-plugin": "^2.1.1",
+    "vinyl-named": "^1.1.0",
+    "webpack": "^4",
+    "webpack-stream": "^4.0.0",
+    "yargs": "^3.8.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/jasondevine/zendroidpress.git"
+  },
+  "bugs": {
+    "url": "https://github.com/jasondevine/zendroidpress.git"
+  },
+  "babel": {
+    "presets": [
+      "env",
+      "stage-2"
+    ]
+  }
+}

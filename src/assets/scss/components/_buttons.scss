@@ -1,0 +1,242 @@
+
+@mixin button-default
+{
+    font-family: var(--widget-font);
+    font-size: .9rem;
+    font-weight: 600!important;
+
+    margin: 3rem 0 1rem 0;
+    padding: 1rem;
+
+    cursor: pointer;
+    transition: $mid-ease;
+    text-align: center;
+
+    opacity: .8;
+    color: #fefefe;
+    border: none;
+    &:hover
+    {
+        opacity: 1;
+    }
+}
+
+
+.zt_comment_loadmore {
+    @include button-default;
+    background: $accent-color;
+    position: absolute;
+    bottom: 0;
+}
+
+
+
+.load-more-posts-spinner
+{
+    [data-id='infinite-scroll'] &
+    {
+        font-size: 5px;
+
+        position: relative;
+        display: block;
+
+        width: 1em;
+        height: 1em;
+        margin: 100px auto;
+
+        transform: translateZ(0);
+        animation: load4 1.3s infinite linear;
+        text-indent: -9999em;
+
+        color: lightgrey;
+        border-radius: 50%;
+    }
+    [data-id='load-more-posts-button'] &
+    {
+        font-size: 14px;
+        font-size: .875rem;
+        font-weight: 800;
+
+        display: block!important;
+
+        height: auto!important;
+        margin: 5rem 0 1rem 0;
+        margin: 0 auto!important;
+
+        cursor: pointer;
+        transition: $mid-ease!important;
+        text-align: center;
+
+        border-radius: 2px;
+        background: lightgrey;
+
+        @include button-default;
+        &:hover
+        {
+            color: #fff;
+            background-color: #767676;
+        }
+        &:after
+        {
+            font-family: 'Font Awesome 5 Free';
+
+            position: relative;
+            bottom: -.05rem;
+            left: .5rem;
+
+            display: inline-block;
+
+            content: '...';
+        }
+    } // end [data-id="load-more-posts-button"] &
+}
+
+
+
+
+
+// the .done class is added by ALM once all posts are loaded and we want to hide the load-more-posts-spinner at that point, so .....
+.alm-load-more-btn.done
+{
+    display: none!important;
+}
+
+
+.alm-btn-wrap .alm-load-more-btn {
+    font-family: 'Josefin Sans';
+    // background: var(--accent-color)!important;
+}
+
+.alm-btn-wrap {
+    // border: 3px solid red;
+}
+
+
+
+
+
+
+.off-canvas-close
+{
+    font-size: 2rem;
+
+    top: 0;
+
+    display: block;
+
+    // margin: -5rem -5rem 0 auto;
+    padding: 0;
+
+    color: #222;
+
+    // padding: 3rem;
+
+    cursor: pointer;
+    position: absolute;
+
+    right: 1rem;
+    top: 1rem;
+
+    span
+    {
+        position: relative;
+        &:after
+        {
+            font-family: 'Font Awesome 5 Free';
+            font-weight: 900;
+
+            margin-left: .5rem;
+
+            content: '\f057';
+
+            color: #FFB347;
+        }
+    }
+}
+
+
+
+
+
+.more-link
+{
+    font-family: var(--small-font)!important;
+    font-size: 14px!important;
+    font-weight: 600!important;
+
+    position: relative;
+    z-index: 1;
+
+    display: block;
+    clear: both;
+
+    width: auto;
+    margin-bottom: 1rem;
+    padding: .5rem 1rem;
+
+    transition: $mid-ease;
+    letter-spacing: 0;
+    text-transform: capitalize;
+
+    color: #fff;
+    border-radius: 2px;
+    background: $haikus;
+
+    filter: saturate(80%);
+    @include breakpoint(medium)
+    {
+        float: right;
+    }
+    &:before
+    {
+        font-family: 'Font Awesome 5 Free';
+        font-weight: 900;
+
+        position: absolute;
+        right: 0;
+
+        display: inline-block;
+
+        margin-right: .8rem;
+
+        content: '\f518';
+        transition: $mid-ease;
+
+        opacity: 1;
+    }
+    &:after
+    {
+        font-family: 'Font Awesome 5 Free';
+        font-weight: 900;
+
+        position: relative;
+
+        display: inline-block;
+
+        margin-left: .5rem;
+
+        content: '\f30b';
+
+        opacity: 0;
+    }
+    &:hover
+    {
+        color: #fff;
+
+        filter: saturate(100%);
+        &:before
+        {
+            transition: $mid-ease;
+
+            opacity: 0;
+        }
+        &:after
+        {
+            opacity: 1;
+
+            @extend .fade-in-left;
+        }
+    }
+} // end .more-link
+
+

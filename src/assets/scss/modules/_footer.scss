@@ -1,0 +1,147 @@
+.site-footer
+{
+    margin-top: rem-calc(200);
+}
+
+
+.footer-grid
+{
+    // padding: rem-calc(30) 0;
+
+    @include xy-grid;
+    // padding: 2rem;
+
+    section
+    {
+        @include xy-cell();
+        @include breakpoint(large)
+        {
+            @include xy-cell(auto);
+        }
+    }
+
+    ul
+    {
+        margin: 0;
+        padding: 0;
+
+        list-style-type: none;
+    }
+}
+
+
+
+#footer-logo
+// {
+//     display: block;
+//     max-width: 14rem;
+//     margin: 0 auto;
+// }
+
+
+
+
+#mailchimp-footer
+{
+    padding: 5rem 0;
+
+    color: #222;
+    background-repeat: no-repeat;
+    label
+    {
+        color: #222;
+    }
+}
+
+#footer-copyright
+{
+
+    padding: 2rem 0;
+
+    .cell {
+        margin-top: 1rem;
+        display: flex;
+        flex-wrap: wrap;
+        align-items: flex-end;
+        justify-content: center;
+        padding: 1rem 0;
+        &:nth-of-type(1) {
+                @include breakpoint(large) {
+                    justify-content: flex-start;
+                }
+        }
+        &:nth-of-type(2) {
+        }
+        &:nth-of-type(3) {
+            @include breakpoint(large) {
+                    justify-content: flex-end;
+                }
+        }
+
+
+    }
+    color: #666!important;
+    background: gainsboro;
+    font-family: 'Open Sans';
+    box-shadow: $box2Inset;
+    font-size: 12px;
+    font-weight: 400;
+    text-align: center;
+} // end #footer-copyright
+
+#copyright-z {
+    max-width: 1rem;
+}
+
+.footer-link {
+    // padding-left: .5rem;
+    font-size: 12px;
+    padding: 0 .75rem 0 0;
+    margin-right: .75rem;
+    margin-top: .75rem;
+    position: relative;
+    display: inline-flex;
+    border-right: 1px solid #cacaca;
+    line-height: 1;
+    &:hover {
+        color: #222;
+    }
+    &:last-of-type {
+            border-right: none;
+        }
+    // vertical-align: baseline;
+    // &:after {
+    //     content: '|';
+    //     position: absolute;
+    //     // padding-left: .5rem;
+    //     top: 50%;
+    //     transform: translateY(-50%);
+    //     right: -.25rem;
+    // }
+}
+
+
+
+#footer-logo {
+    // display: inline-block;
+    // width: 100%;
+        & img {
+            display: inline-block;
+            max-width: 6rem;
+            margin: 0 .5rem;
+                @include breakpoint(medium) {
+                    // float: right;
+                }
+        }
+}
+
+.copyright-inner *
+{
+    text-align: center;
+}
+
+
+
+#cover-wrapper {
+    // background: red;
+}

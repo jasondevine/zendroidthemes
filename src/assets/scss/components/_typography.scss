@@ -1,0 +1,877 @@
+
+// Heading sizes - http://type-scale.com
+h1,
+h2,
+h3,
+h4,
+h5,
+h6
+{
+    font-family: var(--headline-font);
+    font-weight: var(--headline-font-variant);
+    font-weight: 400;
+
+    width: 100%;
+    margin-bottom: 1rem;
+
+    text-align: left;
+    letter-spacing: var(--headline-font-letter-spacing);
+
+    color: var(--headline-font-color);
+    .entry-content &
+    {
+        line-height: 1;
+
+        @include breakpoint(medium)
+        {
+            margin: 6rem 0 3rem 0;
+        }
+    }
+}
+
+
+h1,
+h2,
+h3,
+h4
+{
+    line-height: 1.1;
+
+    margin: 1.414em 0 .5em;
+    .section-title &
+    {
+        position: relative;
+
+        display: inline-block!important;
+
+        width: auto!important;
+        margin-bottom: 1rem;
+        padding-bottom: 1rem;
+
+        @extend .widget-title;
+    }
+}
+
+h1
+{
+    font-size: 2.441em;
+
+    margin-top: 0;
+}
+
+.sassy-underline
+{
+    transition: $mid-ease;
+
+    @include link-underline($background-color, $main-text-colour, $selection-colour);
+    .entry-title &
+    {
+        &:hover
+        {
+            @include link-underline($background-color, $heading-colour, $selection-colour);
+        }
+    }
+}
+
+
+h1.entry-title
+{
+    font-size: 3.8rem;
+    line-height: 1;
+
+    position: relative;
+
+    display: block;
+
+    text-align: left;
+
+    @include breakpoint(medium)
+    {
+        font-size: 5.5rem;
+    }
+
+    .standard-post-layout-title-above &,
+    .standard-post-layout-title-below &
+    {
+        margin-top: 6rem;
+
+        @include breakpoint(medium)
+        {
+            font-size: 4.8rem;
+
+            margin-top: 6rem;
+            padding-left: 0;
+        }
+        @include breakpoint(large)
+        {
+            font-size: 5.3rem;
+
+            text-align: left!important;
+        }
+    }
+
+    .standard-post-layout-title-below &
+    {
+        margin-top: 2rem;
+        // padding-left: 0!important;
+    }
+
+    .standard-post-layout-title-above.has-full-width-entry-title &,
+    .standard-post-layout-title-below.has-full-width-entry-title &
+    {
+        padding-left: .5rem;
+
+        @include breakpoint(medium)
+        {
+            padding-left: 0;
+        }
+    }
+
+
+    .has-sidebar-off.no-full-width-entry-title.standard-post-layout-title-above &,
+    .has-sidebar-off.no-full-width-entry-title.standard-post-layout-title-below &
+    {
+        @include breakpoint(medium)
+        {
+            text-align: center!important;
+        }
+    }
+
+
+    .featured-hero-title-below &
+    {
+        @include breakpoint(medium)
+        {
+            font-size: 4.8rem;
+
+            text-align: left!important;
+
+            padding-top: 6rem;
+        }
+    }
+
+    .featured-hero-title-below.has-full-width-entry-title &
+    {
+        padding-left: 10px;
+
+        @include breakpoint(medium)
+        {
+            padding-left: 1rem;
+
+            text-align: center!important;
+        }
+    }
+
+    .has-sidebar-off.featured-hero-title-below.has-full-width-entry-title &
+    {
+        @include breakpoint(medium)
+        {
+            font-size: 4.8rem;
+
+            text-align: center!important;
+        }
+    }
+
+    .single-post &
+    {
+        position: relative;
+
+        max-width: 85%;
+        padding-right: 0;
+
+        text-align: left;
+
+        @include breakpoint(medium)
+        {
+            max-width: none;
+
+            text-align: center;
+        }
+    } // end .single-post &
+
+    & a
+    {
+        display: inline-block;
+
+        color: inherit;
+    }
+
+    .archive &
+    {
+        font-size: 3.5rem;
+    }
+} // end h1.entry-title
+
+
+h2.entry-title
+{
+    font-size: 2.8rem;
+
+    display: block;
+
+    @include breakpoint(medium)
+    {
+        font-size: 3.2rem;
+    }
+    & a
+    {
+        display: inline-block;
+
+        color: inherit;
+    }
+}
+
+h2
+{
+    font-size: 1.953em;
+}
+
+h3
+{
+    font-size: 1.563em;
+}
+
+h4
+{
+    font-size: 1.25em;
+}
+
+
+
+
+i
+{
+    font-style: italic;
+}
+
+p
+{
+    .post &
+    {
+        line-height: var(--main-body-font-line-height);
+    }
+    .home &
+    {
+        line-height: 1.5;
+    }
+}
+
+
+
+
+small,
+.font_small
+{
+    font-size: .8em;
+}
+
+
+// This is the entry-title for a post as it appears if the option for 'Full-width heading' is checked in the customizer
+.entry-title-full-width
+{
+    margin: 3rem 0 0 0;
+
+    @include breakpoint(medium)
+    {
+        padding: 0;
+    }
+    .has-sidebar-off &
+    {
+        text-align: center;
+    }
+}
+
+// This is a body class if the page contains '.entry-title-full-width'
+.has-full-width-entry-title
+{
+    & .entry-title
+    {
+        font-size: 3.3rem;
+
+        padding-right: 4rem;
+
+        @include breakpoint(medium)
+        {
+            font-size: 4.5rem;
+
+            padding-left: 0;
+        }
+        @include breakpoint(large)
+        {
+            font-size: 5.4rem;
+        }
+    }
+    & .excerpt
+    {
+        text-align: center;
+    }
+
+
+    &.standard-post-layout-title-below
+    {
+        .main-content
+        {
+            & .entry-title
+            {
+                display: block;
+            }
+        }
+    }
+} // .has-full-width-entry-title
+
+
+.has-full-width-entry-title.standard-post-layout-title-below.has-sidebar-off
+{
+    .main-content
+    {
+        & .entry-title
+        {
+            position: relative;
+            right: 50%;
+            left: 50%;
+
+            display: block;
+
+            width: 100vw;
+            max-width: 100vw;
+            margin-right: -50vw!important;
+            margin-left: -50vw!important;
+            padding: 0 1rem;
+        }
+        & .title-wrapper
+        {
+            display: block;
+
+            max-width: 80rem;
+            margin: 0 auto;
+        }
+        & .subheading
+        {
+            display: block;
+
+            margin-top: 2rem;
+            margin-bottom: 3rem;
+            padding: 0;
+
+            @include breakpoint(medium)
+            {
+                margin-top: 4rem;
+            }
+        }
+    }
+}
+
+.featured-hero-title-contained
+{
+    & h1.entry-title
+    {
+        line-height: .9;
+
+        position: relative;
+
+        max-width: none;
+        padding-top: 2rem;
+        padding-right: 7rem;
+        padding-bottom: 2rem;
+
+        background: rgba(#222,.6);
+
+        @include breakpoint(medium)
+        {
+            padding-right: 0;
+
+            background: none;
+
+        }
+        @include breakpoint(large)
+        {
+            max-width: 90%;
+        }
+        &:after
+        {
+            border-bottom: 2px solid #fff;
+        }
+    }
+
+    & h1.entry-title-full-width
+    {
+        padding-left: 1rem;
+
+        @include breakpoint(medium)
+        {
+            padding: 0 1rem;
+        }
+    }
+
+    &.no-thumbnail
+    {
+        & h1.entry-title
+        {
+            padding-top: 0;
+            padding-bottom: 0;
+            padding-left: 0;
+
+            text-align: left;
+
+            background: none;
+            &:after
+            {
+                text-align: left;
+
+                border-bottom: 2px solid #222;
+            }
+        }
+    }
+} // end .featured-hero-title-contained
+
+
+.lead
+{
+    font-size: 110%;
+    font-style: italic;
+
+    position: relative;
+
+    display: block;
+
+    margin-top: 2rem;
+    &:after
+    {
+        position: relative;
+
+        display: block;
+
+        width: 100%;
+        height: 1px;
+        margin-top: 1rem;
+
+        content: '';
+
+        border-top: 1px dashed lightgrey;
+    }
+}
+
+
+.subheading
+{
+    font-family: var(--small-font);
+    font-size: rem-calc(18);
+    font-weight: 300;
+    line-height: 1.4;
+
+    position: relative;
+
+    display: block;
+
+    width: auto;
+    margin: 0 auto;
+    margin-top: 4rem;
+    padding: 1rem 1rem 1em 1rem!important;
+    padding: 0 0 1rem 0!important;
+
+
+    text-align: left;
+    text-decoration: none;
+
+    color: #444;
+    border-bottom: 0;
+    background-image: url('data:image/svg+xml;charset=utf8,%3Csvg id=\'squiggle-link\' xmlns=\'http://www.w3.org/2000/svg\' xmlns:xlink=\'http://www.w3.org/1999/xlink\' xmlns:ev=\'http://www.w3.org/2001/xml-events\' viewBox=\'0 0 20 4\'%3E %3Cpath fill=\'none\' stroke=\'%23d1d1d1\' stroke-width=\'.5\' class=\'squiggle\' d=\'M0,3.5 c 5,0,5,-3,10,-3 s 5,3,10,3 c 5,0,5,-3,10,-3 s 5,3,10,3\'/%3E%3C/svg%3E');
+    background-repeat: repeat-x;
+    background-position: bottom;
+    background-size: 30px;
+
+    @include breakpoint(medium)
+    {
+        font-size: rem-calc(22);
+
+        margin-top: 4rem;
+
+        text-align: center;
+    }
+    @include breakpoint(large)
+    {
+        font-size: rem-calc(28);
+
+        padding: 1rem 2rem;
+        &:before
+        {
+            font-family: 'Font Awesome 5 Free';
+            font-size: 1rem;
+            font-weight: 900;
+            font-style: normal;
+
+            display: inline-block;
+
+            margin-right: 1rem;
+
+            content: '\f00d';
+        }
+    }
+
+
+
+    .featured-hero-title-below &
+    {
+        display: inline-block;
+
+        margin-bottom: 3rem;
+        padding: 0 0 1rem 0!important;
+
+        color: #222!important;
+
+        @include breakpoint(medium)
+        {
+            margin-top: 0;
+            padding: 1rem 1rem 1rem 0!important;
+
+            text-align: left!important;
+
+        }
+    }
+
+    .featured-hero-title-below.has-full-width-entry-title &
+    {
+        display: block;
+        margin-top: 1rem!important;
+        margin-bottom: 3rem;
+        padding: 0 .5rem 1rem .5rem!important;
+
+        @include breakpoint(medium)
+        {
+            max-width: 80rem;
+            margin-top: 4rem!important;
+            // padding-left: 1rem;
+
+            text-align: center!important;
+        }
+    }
+
+    .featured-hero-title-contained &
+    {
+        z-index: 1;
+
+        width: 100%;
+        margin-top: 2rem;
+        margin-bottom: 2rem;
+        padding: 0 1rem 1rem 1rem!important;
+
+
+        text-align: left;
+
+        color: white;
+
+        @include breakpoint(medium)
+        {
+            max-width: 90rem;
+            padding: 1rem 2rem;
+        }
+        @include breakpoint(large)
+        {
+            width: auto;
+
+            text-align: center;
+        }
+    }
+
+    .featured-hero-title-contained.no-thumbnail &
+    {
+        padding: 0;
+        padding-bottom: 1em!important;
+
+        color: #222;
+
+        @include breakpoint(medium)
+        {
+        }
+    }
+
+    .standard-post-layout-title-above.no-full-width-entry-title &
+    {
+        padding: 0;
+
+        margin-bottom: 3rem;
+        text-align: left;
+    }
+
+    .standard-post-layout-title-below.no-full-width-entry-title &
+    {
+        // padding: 0 1rem!important;
+
+        margin-bottom: 3rem;
+        text-align: left;
+    }
+
+    .has-sidebar-off.standard-post-layout-title-above &
+    {
+        @include breakpoint(large)
+        {
+            text-align: center;
+        }
+    }
+
+
+    .has-sidebar-off.featured-hero-title-below.has-full-width-entry-title &
+    {
+        @include breakpoint(medium)
+        {
+            text-align: center!important;
+        }
+    }
+
+
+
+    .has-sidebar-off.featured-hero-title-below &
+    {
+        padding: 0 10px;
+    }
+
+
+    .list-post &
+    {
+        font-size: 14px;
+
+        margin-top: 1rem;
+        padding: 0;
+
+        text-align: left;
+        &:before,
+        &:after
+        {
+            display: none;
+        }
+        display: none;
+    }
+
+
+    .no-thumbnail &
+    {
+        margin: 3rem auto;
+        padding-bottom: 1em!important;
+
+        text-align: left;
+
+        @include breakpoint(medium)
+        {
+        }
+    }
+} // end .subheading
+
+
+
+blockquote
+{
+    font-size: 1.6rem;
+    font-weight: 200;
+    font-style: italic;
+    font-family: var(--serif-font);
+
+    position: relative;
+
+    display: block;
+
+    height: auto;
+    margin-bottom: 3rem;
+
+    color: grey;
+
+    @include breakpoint(large)
+    {
+        font-size: 2rem;
+    }
+    & cite
+    {
+        font-family: var(--small-font);
+        font-weight: 500;
+        font-style: normal;
+
+        display: block;
+
+        margin-top: 2rem;
+
+        color: #222;
+    }
+}
+
+
+
+
+.smallCaps
+{
+    font-family: var(--small-font)!important;
+    font-size: 1.1rem!important;
+    font-weight: 400!important;
+
+    letter-spacing: .28em!important;
+    text-transform: uppercase!important;
+}
+
+.largeCaps
+{
+    font-family: var(--small-font)!important;
+    font-size: 2rem!important;
+    font-weight: 700!important;
+
+    letter-spacing: .28em!important;
+    text-transform: uppercase!important;
+
+    @include breakpoint(medium)
+    {
+        font-size: 3.1rem!important;
+    }
+}
+
+
+.small
+{
+    font-family: var(--small-font)!important;
+    font-size: var(--small-font-size)!important;
+    font-weight: var(--small-font-variant)!important;
+
+    color: var(--small-font-color)!important;
+
+    @include breakpoint(medium)
+    {
+    }
+}
+
+
+.small-bold
+{
+    font-size: 12px!important;
+    font-weight: 600!important;
+    line-height: 2;
+
+    letter-spacing: 0;
+    text-transform: capitalize;
+
+    @extend .small;
+    @include breakpoint(medium)
+    {
+        font-size: 14px!important;
+    }
+}
+
+.script-font
+{
+    font-family: var(--script-font)!important;
+}
+
+
+.ampersand
+{
+    // https://codepen.io/chriskirknielsen/pen/WWOvKRS
+    //
+    // This class replaces the ampersand character with a stylised ampersand with SVG
+    // but only if the browser supports the -webkit-text-fill-color and mask properties.
+    //
+    // 1: Used to place the pseudo-element
+    // 2: Ensures the padding doesn't create a two-line inline element
+    // 3: Gives a bit more space for the styled ampersand to grow,
+    //   adapt depending on the styled SVG used
+    // 4: Used to hide the original ampersand without overwriting currentColor
+    // 5: Inline or point to your styled ampersand SVG – make sure you're allowed to use it!
+    // 6: Adjust position depending on & character and surrounding font,
+    //    but you usually want the `y` value below 50% so it doesn't dip by the descenders
+    // 7: Avoid user selection issues
+
+    @supports (-webkit-text-fill-color: red) and (mask-size: 2px)
+    {
+        position: relative; // *1
+
+        display: inline-block; // *2
+
+        padding: 0 .1875em; // *3
+
+        -webkit-text-fill-color: transparent; // *4
+        &::before
+        {
+            position: absolute; // *1
+            top: 0; // *1
+            left: 0; // *1
+
+            display: block; // *1
+
+            width: 100%; // *1
+            height: 100%; // *1
+
+            content: ''; // *1
+            pointer-events: none; // *7
+
+            background-color: currentColor;
+
+            mask-image: url('data:image/svg+xml,%3Csvg xmlns=\'http://www.w3.org/2000/svg\' viewBox=\'0 0 24 24\'%3E%3Cpath d=\'M9.2 5.1l.5.6c.6.8 1.7.9 2.4.6.8-.4 1-1.2 1-2-.2-1.2-1-1.9-2-2.2a4.2 4.2 0 0 0-3.5.5C6.7 3 6.2 3.9 6 5a6 6 0 0 0 0 3l.3.1c.7 0 1.3 0 2 .2.3 0 .5.3.8.5.3.2.4.9.2 1.2-.2.4-.6.6-1 .6-1.1 0-2-.5-2.5-1.4 0-.1-.1-.1-.2 0a3 3 0 0 0-1.9 2c-.5 1.7-.2 3.4.6 5a8.3 8.3 0 0 0 4.5 4.1c1.3.6 2.7.8 4 .7 1.9-.1 3.5-.8 4.7-2.2.8-.8 1.2-1.9 1.4-3 0-1 0-2-.4-2.9-.6-1.4-2-2.3-3.5-2.3-1 0-2 .3-2.7 1-.6.6-1 1.4-1 2.3 0 .7 0 1.4.4 2 .5.8 1.2 1.2 2.1 1.3.7 0 1.2-.2 1.7-.6a2 2 0 0 0 .1-2.9c-.4-.3-.8-.4-1.3-.3l-.2.2.2.2.2.1c.4.3.4.6.4 1s-.2.7-.6.8c-.5.2-1.3 0-1.5-.7-.2-.9.2-1.8 1-2 1.2-.5 2.3 0 2.8 1.1.4 1 .2 2-.5 3-.5.4-1 .6-1.7.7-.8 0-1.7 0-2.4-.6a3.4 3.4 0 0 1-1.3-2 5.4 5.4 0 0 1 1-4.8c.7-1 1.7-1.7 3-2l2.2-.2 3-.1c.8-.1 1.7-.5 2.2-1.3l.4-1.2c0-.8 0-1.6-.5-2.3a2 2 0 0 0-1.7-1h-1c-.7.3-1.1 1-1 1.7.3-.2.5-.3.9-.3.5 0 1 .4 1 1 0 .7-.2 1-.8 1.3-.5.1-1.2 0-1.5-.5-.5-.7-.5-1.9 0-2.6.5-.9 1.2-1.2 2.2-1.3 1.3 0 2.3.6 3 1.7.3.6.5 1.3.5 2a6 6 0 0 1-.2 2.2 4 4 0 0 1-2 2.3c-1 .6-2 .7-3.2.8h-.8l.8.7c.8.8 1.2 1.8 1.3 3 0 1 0 2-.3 3.1-.4 1-1 2-1.7 2.8a8.6 8.6 0 0 1-4.5 2.4c-1.5.3-3 .3-4.6 0-1.7-.3-3.2-1-4.5-2.1a7 7 0 0 1-2.4-4.9 8 8 0 0 1 .4-3.6 6 6 0 0 1 3.4-3.5c.2 0 .2-.2.2-.3C5.2 7.5 5 6.7 5 6c0-1.6.6-3 2-4 .7-.5 1.5-.8 2.4-.8 1 0 2 0 3 .6s1.6 1.6 1.7 2.8c0 .7 0 1.4-.4 2-.5.8-1.2 1.2-2.1 1.3-.6 0-1 0-1.5-.3-.8-.4-1-1.1-1-2v-.5z\'/%3E%3C/svg%3E%0A'); //*5
+            mask-position: 50% 50%; // *6
+            mask-repeat: no-repeat;
+            mask-size: contain;
+        } // end :before;
+    } // end @supports
+}
+
+
+
+// This is a style for 'drop caps' ...... that is to say, the oversized first letters that are sometimes used by publishers
+.dropcaps
+{
+    font-family: var(--serif-font);
+    font-size: 6rem;
+    font-weight: 700;
+    line-height: 1;
+
+    position: relative;
+
+    float: left;
+
+    padding: 0rem .2rem .5rem 0;
+
+    color: var(--main-body-color);
+
+    // background: #444;
+    // color: #fff;
+    padding: 0 1rem 0 1rem;
+    margin-right: 1rem!important;
+    // margin-top: 1rem!important;
+    line-height: .8;
+    border-bottom: 7px solid var(--main-body-color);
+
+    @include respond-to(small)
+    {
+        margin-right: .5rem;
+    }
+}
+
+
+.dropcapsFollower
+{
+    // font-family: Montserrat!important;
+    font-family: var(--navigation-font);
+    font-weight: 600!important;
+    // font-variant: small-caps!important;
+    font-size: 1rem!important;
+    font-style: normal;
+
+    letter-spacing: .48em;
+    text-transform: uppercase;
+
+    @include respond-to(small)
+    {
+        // font-size: 1.1rem;
+    }
+}
+
+
+// Identify the first line in first paragraph in an 'entry-content' block and extend the .dropcapsFollower class to it
+// .drop-caps-paragraph::first-line
+// {
+//     font-variant: small-caps;
+//     line-height: 2;
+
+//     display: block!important;
+
+//     color: #222;
+
+//     @extend .dropcapsFollower;
+// }
+
+
+
+

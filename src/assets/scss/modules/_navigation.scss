@@ -1,0 +1,1944 @@
+
+
+// Navigation breakpoints
+.mobile-menu,
+.site-title-bar {
+  @include hide-for(large);
+}
+
+.desktop-menu,
+.site-navigation .-bar-left {
+  @include show-for(large);
+}
+
+.desktop-menu {
+  background: none!important;
+}
+
+
+.transparent-header {
+  transition: $mid-ease!important;
+}
+
+.no-transparent-header {
+  transition: $mid-ease;
+}
+
+
+.site-header {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  z-index: 1001;
+  height: auto;
+  flex-direction: column!important;
+  height: 6rem;
+  border: 20px solid #fff;
+  border-bottom: none;
+  @include transparent-header-background; // this applies the header background colour from the customizer UNLESS the class 'transparent header' is found
+  @include breakpoint(medium) {
+    height: auto;
+    flex-direction: row!important;
+    @include padding(0,3,3,3); // this is 3rem on each side except the top, taken from Foundation protopying classes as mixins
+  }
+
+  @include breakpoint(large) {
+    @include padding(3,3,3,3);
+  }
+
+  @include breakpoint(small down) {
+      box-shadow: $box3;
+      }
+
+  .has-centred-site-logo {
+    @include breakpoint(large) {
+      @include padding(3,0,3,0);
+  }
+  }
+
+
+  .has-slider-block &, .has-featured-hero & {
+    @include breakpoint(medium) {
+        }
+  }
+
+  .archive & {
+  @include breakpoint(large up) {
+      }
+  }
+
+
+  .has-widescreen-block.transparent-header & {
+    border: 20px solid transparent;
+  }
+
+  .has-widescreen-block.light-header & {
+    border: 20px solid #fefefe;
+  }
+
+  .has-widescreen-block.dark-header & {
+    border: 20px solid #222;
+  }
+
+}  
+
+.site-header-background {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  display: block;
+  height: auto;
+  width: auto;
+  opacity: 0;
+  pointer-events: none;
+  transition: 200ms all ease-out;
+  &:hover {
+  }
+      @include breakpoint(large) {
+        // background-color: var(--header-background-color);
+
+      }
+
+  .featured-hero-title-below.transparent-header & {
+    opacity: 0;
+  }
+
+  .attachment & {
+    opacity: 1;
+  }
+
+  .error404 & {
+    opacity: 1;
+  }
+
+} // end .site-header-background
+
+
+
+// Customizer options - Header Type
+// 1. Light header
+
+.light-header {
+  & .site-header-background {
+        @include breakpoint(large) {
+          background-color: #fefefe!important;
+          opacity: 1!important;
+        }
+  }
+
+  & .hamburger {
+      .hamburger-inner {
+        background-color: $lightnavcolor!important;
+        &:before, &:after {
+          background-color: $lightnavcolor!important;
+        }
+    }
+  } // end .hamburger
+
+
+} // end .light-header
+
+
+// 2.  Dark header
+
+.dark-header {
+  & .site-header-background {
+        @include breakpoint(large) {
+          background-color: #222!important;
+          opacity: 1!important;
+        }
+  }
+
+  & .hamburger {
+      .hamburger-inner {
+        background-color: $darknavcolor!important;
+        &:before, &:after {
+          background-color: $darknavcolor!important;
+        }
+    }
+  } 
+} // end .hamburger
+
+
+.transparent-header {
+  & .site-header-background {
+        @include breakpoint(large) {
+            background-color: rgb(45,45,45)!important; // this color is explicitly set as 'panel_background_from' and 'panel_background_to' in the MegaMenu theme file (mega-menu-theme.php)
+        }
+  }
+}
+
+
+
+
+// Site title
+.site-desktop-title a {
+  font-weight: bold;
+}
+
+// Mobile menu
+//
+
+
+#menu-off-canvas {
+  margin: 0 0 4rem 0;
+  padding-top: 5rem;
+  border-top: 1px dashed #ccc;
+
+  .menu-item {
+    .is-closed & {
+    }
+    .is-open & {
+      animation: slide-in-blurred-right 0.2s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
+    }
+  }
+}
+
+// We use a for loop to iterate through a given number of elements and add a delay to the animation based on the 
+// current element's position in the range
+@for $i from 1 through 20 {
+  #menu-off-canvas>.menu-item:nth-child(#{$i}) {
+    animation-delay:(#{$i*0.07s}); 
+  }
+}
+
+
+#offcanvas-sidebar-container {
+  .offcanvas-block {
+    .is-closed & {
+      }
+    .is-open & {
+        animation: slide-in-bottom 0.2s cubic-bezier(0.390, 0.575, 0.565, 1.000) backwards;
+      }
+    }
+}
+
+@for $i from 1 through 20 {
+  #offcanvas-sidebar-container .offcanvas-block:nth-child(#{$i}) {
+    animation-delay:(#{$i*0.25s}); 
+  }
+}
+
+.mobile-menu,.mobile-off-canvas-menu {
+
+  .menu .is-active > a {
+    background-color: rgba($darknavcolor, 0.8);
+  }
+
+
+}
+
+
+
+.mobile-title-bar {
+  position: fixed;
+  top: 0;
+  background: #222;
+  box-shadow: $box4;
+  .hamburger {
+    .hamburger-inner {
+      background-color: #888!important;
+      &:before, &:after {
+        background-color: #888!important;
+      }
+    }
+  } // end .hamburger
+} // end .mobile-title-bar
+
+.title-bar {
+  width: 100%;
+  max-width: 100vw;
+}
+.mobile-menu {
+  width: 100%;
+  display: none; // prevents repaint caused by JS hiding menu onload
+}
+.site-mobile-title {
+  // height: 5rem;
+}
+
+.site-mobile-logo {
+  position: relative;
+  margin: 0 50px;
+  a {
+    img {
+      display: block;
+      max-width : 250px;
+      width: 100%;
+      min-width: 100px;
+      position: relative;
+    }
+  }
+}
+
+.title-bar-left {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 5rem;
+  .hamburger {
+    position: absolute;
+    left: 0;
+  }
+}
+
+// Off-canvas
+//
+//
+//
+#offcanvas-logo {
+  margin-bottom: 2rem;
+}
+
+.off-canvas-wrapper {
+  overflow: unset!important; // This is neccessary, or else sticky-sidebar stops working (any explicit overflow declaration on
+  // an ancestor element will break 'position:sticky') ... in any case, it behaves the same without it
+}
+
+
+// This is a setting from Foundation's Reveal module, and it cause a jumpy animation ( from overflow:auto to overflow:hidden) when the search modal is toggled. So I'm forcing it to stay as scroll in order to avoid that
+html.is-reveal-open {
+   body {
+      overflow: scroll!important;
+   }
+}
+
+#searchclose {
+
+}
+
+.off-canvas {
+    padding: 3rem;
+    max-width: 100%;
+    transition: all cubic-bezier(0.6, 0.25, 0.52, 0.74) 0.35s;
+    opacity: 0;
+    background-color: var(--offcanvas-background-colour);
+    
+    color: #fff;
+
+  > ul.menu {
+    a {
+      color: var(--offcanvas-text-colour);
+      font-family: var(--small-font);
+      font-weight: 600;
+      font-size: rem-calc(15);
+    }
+  }
+
+  label {
+    color: var(--offcanvas-text-colour);
+  }
+
+  input {
+    color: #222;
+  }
+
+  #searchform-offcanvas {
+    input {
+      color: var(--offcanvas-text-colour);
+    }
+  }
+
+
+// This is the little arrow that indicates sub-menu content to expand (part of accordion-menu in Foundation)
+  .submenu-toggle {
+    &:after {
+      border-color: var(--offcanvas-text-colour) transparent transparent;
+    }
+  }
+
+
+  .menu .active > a { 
+  }
+
+.off-canvas-content {
+  position: relative;
+}
+
+.off-canvas.is-transition-push {
+  box-shadow: $box3!important;
+}
+
+.off-canvas.is-transition-overlap {
+}
+
+} // end .off-canvas
+
+.off-canvas.is-open {
+      opacity: 1;
+}
+
+.site-logo-bar {
+  @include show-for('large');
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: transparent;
+  margin-bottom: 1rem;
+  @include breakpoint (xlarge) {
+    margin-right: auto;
+  }
+}
+
+//  SEARCH BUTTON
+// 
+// 
+#search-button {
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  text-align: right;
+  font-size: 16px;
+  margin-right: 1.5rem;
+  transition: $mid-ease;
+  @include show-for('large');
+  &:hover {
+    &:before {
+    }
+  }
+  &:before {
+    // content: 'Search';
+    // font-family: var(--serif-font);
+    // font-style: italic;
+    // font-size: 1.1rem;
+    // padding: 0px 10px 0px 15px;
+    // display: inline;
+    // color: var(--navigation-font-color);
+    // transition: $mid-ease;
+  }
+  &:after {
+    display: inline;
+    content: '\f002';
+    font-family: 'Font Awesome 5 Free';
+    font-weight: 900;
+    color: #fff;
+  }
+
+  .light-header & {
+    &:before {
+      color: $lightnavcolor;
+    }
+    &:after {
+      color: $lightnavcolor;
+    }
+  }
+
+  .dark-header & {
+    &:before {
+      color: $darknavcolor;
+    }
+    &:after {
+      color: $darknavcolor;
+    }
+  }
+
+}
+
+//This is the parent container of the search button, and also the hamburger menu
+.site-search {
+  position: absolute;
+  top: 1rem;
+  top: 0;
+  right: .5rem;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  width: 15rem; // this is the max-width of header-logo; the idea is to use auto-margins to push the search element and header-logo to the right and left edges respectively of the parent flex container, while keeping the inner menu perfectly centred. In order to do that successfully, both the outer elements need to have the same width
+  margin-left: auto;
+  @include breakpoint(xlarge) {
+  }
+
+  .has-left-site-logo & {
+    @include breakpoint (large) {
+      position: relative;
+      top: auto;
+    }
+  }
+} // end .site-search
+
+
+.title-bar-title {
+  a {
+    font-size: 1rem;
+    color: #B9B9B9;
+  }
+}
+
+
+
+
+.desktop-menu {
+  align-items: center;
+  justify-content: center;
+  background: none!important;
+    & > li.menu-item {
+      & > a {
+        line-height: 1!important;
+      }
+  }
+  & > li > a {
+    padding: .5rem 1rem!important;
+        &:hover {
+    }
+  }
+  & > li:not(:last-child) > a {
+    border-right: 1px solid $lightnavcolor;
+    .dark-header & {
+      border-right: 1px solid $darknavcolor;
+    }
+    .transparent-header & {
+      border-right: 1px solid $darknavcolor;
+    }
+  }
+} // end #menu-main-menu
+
+.top-bar {
+  display: none;
+  max-width: 100vw;
+  // margin-top: 3rem;
+  @include breakpoint(large) {
+    display: flex;
+  }
+  background-color: transparent;
+  transition: $mid-ease;
+  & .top-bar-centre {
+    flex: 1 1 auto;
+    padding: 1rem;
+    max-width: 100%;
+  }
+
+  & ul {
+    .dark-header & {
+    background-color: #222;
+    }
+  }
+
+
+  .top-bar-title a {
+    font-size: 1rem;
+    color: #B9B9B9;
+    padding-left: 1rem;
+    line-height: 1.8;
+  }
+
+  .menu a {
+    font-family: var(--navigation-font);
+    font-size: var(--navigation-font-size);
+    font-weight: var(--navigation-font-variant);
+    text-transform: var(--navigation-font-text-transform);
+    letter-spacing: var(--navigation-font-letter-spacing);
+    padding-top: 0;
+    padding-bottom: 0;
+    transition: $mid-ease;
+    border-bottom: 1px solid #4a4a4a;
+    &:last-of-type {
+      border-bottom: none;
+    }
+
+    .light-header & {
+      color: $darknavcolor;
+      background: var(--mmm-colour-1);
+      &:hover {
+        background: var(--mmm-colour-2);
+      }
+    }
+
+    .dark-header & {
+      color: $darknavcolor;
+      background: var(--mmm-colour-1);
+      &:hover {
+        background: var(--mmm-colour-2);
+      }
+    }
+
+    .transparent-header & {
+      color: $darknavcolor;
+      text-shadow: 0.1em 0.1em 0.2em rgba(#333,0.8);
+      background: none;
+      &:hover {
+        color: $accent-color;
+        // background: darken(#555, 10%);
+      }
+    }
+  } // end .menu a
+
+  .menu-top-level-item > a { // root level menu items on the main nav
+    border-bottom: none;
+
+    .light-header & {
+      color: $lightnavcolor;
+        background-color: var(--background-color);
+        &:hover {
+          background-color: var(--background-color);
+        }
+    }
+    .dark-header & {
+      background-color: $lightnavcolor;
+              &:hover {
+          background-color: $lightnavcolor;
+        }
+    }
+
+
+    .transparent-header & {
+      background: none;
+      &:hover {
+        background: none;
+      }
+    }
+  } // end .menu-top-level-item > a
+
+  .menu-top-level-item {
+    position: relative;
+    padding: 1rem 0;
+  }
+
+  .mega-menu-top-level-item {
+    position: relative;
+  }
+
+  .menu .active > a { 
+    background-color: #ccc;
+  }
+
+  .menu li:not(:last-child) {
+   }
+
+   
+   .dropdown.menu > li > a {
+      padding: 1rem 3rem 1rem 1rem;
+      line-height: 2;
+   }
+
+   .dropdown.menu > li.opens-right > .is-dropdown-submenu {
+    // top: 3rem;
+    // top: 2rem;
+    // 
+   }
+
+  .dropdown.menu .submenu { 
+    border: 0;
+  }
+
+  .dropdown.menu .has-submenu.is-down-arrow a {
+   padding-right: 1rem; 
+  }
+
+  .dropdown.menu .has-submenu.is-down-arrow > a::after {
+   border: 0; 
+ }
+
+  .dropdown.menu:first-child > li.is-dropdown-submenu-parent > a::after {
+    display: none;
+  }
+} // end .top-bar
+
+// Menu entry for something like 'Buy Now' ..... has a cart icon from Font Awesome
+.purchase-link  {
+  a {
+    &:after {
+      content: '\f217';
+      font-family: 'Font Awesome 5 Free';
+      font-weight: 900;
+      font-size: 1.2rem;
+      vertical-align: middle;
+      display: inline-block;
+      position: absolute;
+      right: -1rem;
+      top: 0;
+    }
+  }
+}
+
+.mega-purchase-link {
+  .mega-menu-link {
+    position: relative;
+    &:after {
+      position: absolute;
+      content: '\f07a';
+      font-family: 'Font Awesome 5 Free';
+      font-weight: 900;
+        .light-header  & {
+            color: #ccc;
+        }
+        .dark-header & {
+            color: $darknavcolor!important;
+        }
+      font-size: 1rem;
+      vertical-align: middle;
+      display: inline!important;
+      margin-left: .5rem;
+      margin-top: -.4rem;
+    }
+  }
+}
+
+.site-navigation {
+  @include breakpoint(small only) {
+    padding: 0; // prevents container visibility on small screens
+  }
+}
+
+// WP post navigation
+.post-navigation {
+  @include clearfix;
+}
+
+.nav-previous {
+  float:left;
+}
+
+.nav-next {
+  float:right;
+}
+
+.site-logo {
+  max-width: 15rem;
+  position: relative;
+  z-index: 10000;
+  // If you're supplying an alternative image to the standard site logo, via customizer, for the light version of the header, you'll probably need to comment this out
+  .light-header & {
+    // filter: invert(100%);
+  }
+
+  .logo-centre-demo & {
+    display: none;
+  }
+}
+
+// .centred-site-logo {
+//   height: 7rem;
+//   // width: 15rem;
+//   // If you're supplying an alternative image to the standard site logo, via customizer, for the light version of the header, you'll probably need to comment this out
+//   .light-header & {
+//     // filter: invert(100%);
+//   }
+
+//   img {
+//     height: 100%;
+//   }
+// }
+
+// Trying to display the site logo over the top of a centred top tier menu item, so that it sits with an equal numer of menu items on either side ... we apply the actual URL of the logo image via an inline style handled by customizer-output.php
+
+.centre-logo-placeholder {
+  display: block;
+  position: relative;
+    height: 4.5rem;
+    width: 15rem;
+    z-index: 1000;
+    background-size: contain;
+    background-position: top center;
+    background-repeat: no-repeat;
+    margin: 0 3rem;
+    margin-top: -2rem;
+    border-right: none!important;
+    transition: $mid-ease;
+    // border: 1px solid orange;
+    // border-right: 1px solid orange!important;
+
+        @include breakpoint(xlarge) {
+          height: 9rem;
+          width: 30rem;
+          margin-top: 0;
+        }
+
+    .has-left-site-logo & {
+      display: none;
+    }
+
+//  We're appending this element in app.js after hiding the main link from the menu-item
+    & .home-link {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      display: inline-block;
+    }
+  }
+
+#mega-menu-wrap-top-bar-r #mega-menu-top-bar-r > li.mega-menu-item.mega-centre-logo-placeholder {
+    @extend .centre-logo-placeholder;
+}
+
+
+
+#back-to-top {
+  color: #fff;
+  position: fixed;
+  z-index: 100;
+  bottom: 1rem;
+  right: 1rem;
+  display: none; // we're fading it in with js
+  & a {
+    position: relative;
+    width: 3rem;
+    height: 3rem;
+    color: #fff;
+    background: linear-gradient(to top, var(--accent-color), lightgrey);
+    background: $haikus;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+        @include breakpoint(medium down) {
+          width: 4rem;
+          height: 4rem;
+        }
+  }
+
+  &:after {
+    display: block;
+    content: '';
+    position: absolute;
+    bottom: -.8rem;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 1.5rem;
+    height: 5px;
+    border-bottom: 5px solid darken(#6cb8ea, 50%);
+    border-radius: 80%;
+    filter: blur(3px);
+    opacity: 0.4;
+    perspective: 200;
+  }
+
+      @include breakpoint(medium) {
+          bottom: 2.5rem;
+          right: 2rem;
+      }
+
+      @include breakpoint(medium down) {
+        .fas {
+          font-size: 2rem;
+        }
+      }
+
+
+}
+
+//  PAGINATION
+
+
+
+
+// .pagination {
+
+
+.pagination {
+  // display: flex;
+  // align-items: center;
+  // justify-content: center;
+  // border: 1px solid red;
+  // background: linen;
+  & li {
+      display: inline-flex;
+      font-weight: 200!important;
+      letter-spacing: 0.28em;
+      font-size: 1rem;
+      margin: 0;
+    & a {
+      color: #222;
+      padding: 1rem;
+      font-family: var(--navigation-font);
+    } // end a
+
+    & .current {
+      font-size: 1rem;
+      padding: 1rem;
+      // padding: .75rem;
+      color: #222;
+      border-bottom: 1px solid gainsboro;
+    }
+
+     & .next, & .prev {
+      display: none;
+  }
+
+
+  } // end .li
+
+
+} // end .pogination
+
+.pagination-container {
+  margin-top: 10rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  & .page-numbers {
+    padding: .75rem 1.25rem;
+    font-family: var(--navigation-font);
+    font-size: .8rem;
+    border-radius: .3rem;
+    margin: .2rem;
+    &:hover {
+      background-color: var(--accent-color);
+    }
+  }
+
+  & .next, & .prev {
+    text-transform: uppercase;
+    letter-spacing: 0.25em;
+    // color: lightgrey;
+    font-size: 1rem;
+    &:hover {
+      background-color: transparent;
+      color: darkgrey;
+    }
+
+  }
+
+  & .prev {
+    &:before {
+      content: '\f053';
+      display: block;
+      position: relative;
+      font-family: 'Font Awesome 5 Free';
+      font-weight: 900;
+    }
+  }
+
+    & .next {
+    &:before {
+      content: '\f054';
+      display: block;
+      position: relative;
+      font-family: 'Font Awesome 5 Free';
+      font-weight: 900;
+    }
+  }
+
+  & .current {
+    background: lightgrey;
+    color: #fff;
+    &:hover {
+      background-color: darkgrey;
+    }
+  }
+
+
+}
+
+
+.paginate-link {
+  display: inline-flex;
+
+}
+
+.paginate-previous {
+  // border-left: 1px solid gainsboro;
+
+  &:before {
+      font-family: 'Font Awesome 5 Free';
+      font-size: 3rem;
+      color: gainsboro;
+      content: '\f053';
+      display: inline-block;
+      position: relative;
+      top: 0;
+      vertical-align: middle;
+      font-weight: 900;
+      padding: .5rem .5rem .5rem 0;
+
+  }
+
+}
+
+.paginate-next {
+  // border-right: 1px solid gainsboro;
+
+  &:after {
+       font-family: 'Font Awesome 5 Free';
+       font-size: 3rem;
+       color: gainsboro;
+      content: '\f054';
+      display: inline-block;
+      position: relative;
+      font-weight: 900;
+      padding: .5rem 0 .5rem .5rem;
+
+  }
+}
+
+
+
+
+
+// #TIMELINE
+
+#timeline {
+  width: 100%;
+  display: flex;
+  margin-top: 6rem;
+  flex-wrap :wrap;
+}
+
+
+
+.thumb-wrapper {
+  width: 100%;
+  transition: $fast-ease;
+  overflow: hidden;
+  &:hover {
+    .thumb {
+      transform: scale3d(1.1,1.1,1.1);
+      &:before {
+        opacity: 1;
+      }
+    }
+  }
+}
+
+
+
+.thumb {
+  transform: translateZ(0);
+  transition: $slow-ease;
+  width: 100%;
+  height: 12rem;
+  background-size: cover!important;
+  background-position: center center!important;
+  background-repeat: no-repeat!important;
+  &:before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: $smokebox3;
+    opacity: 0.6;
+    transition: $mid-ease;
+  }
+
+  img {
+  }
+}
+
+#timeline .no-image {
+    position: relative;
+    background: lightgrey;
+    overflow: hidden;
+
+
+    &:before {
+      display: flex;
+      height: 100%;
+      align-items: center;  
+      justify-content: center;  
+      font-family: 'Font Awesome 5 Free';
+      content: '\f03e';
+      font-size: 3rem;
+      color: grey;
+      margin: 0 auto;
+    }
+  }
+
+.post-nav-link {
+  margin-top: 2rem;
+  width: 100%;
+  @include respond-to('medium') {
+    width: 50%;
+  }
+  &:hover {
+    .thumb {
+      filter: saturate(100%);
+    }
+  }
+}
+
+.previous-post-link {
+  position: relative;
+  display: flex;
+  justify-content: flex-start;
+  flex-direction: column;
+  @include respond-to(medium) {
+    padding-right: .5em;
+  }
+}
+
+.next-post-link {
+  position: relative;
+  display: flex;
+  justify-content: flex-start;
+  flex-direction: column;
+  @include respond-to(medium) {
+    padding-left: .5em;
+  }
+  margin-left: auto; // we want it to still sit over to the right even when there is no previous post to push it over there
+}
+
+
+.label-previous, .label-next {
+  text-align: left!important;
+  display: block!important;
+  color: #222;
+  transition: $mid-ease;
+  @extend h3;
+  &:hover {
+    color: $accent-color;
+  }
+
+}
+.label-next {
+  text-align: right!important;
+  align-self: flex-end;
+  float: right;
+}
+
+.previous-post-title, .next-post-title {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-end;
+  line-height: 1.4;
+  transition: $mid-ease;
+  @extend .small;
+  font-weight: 600!important;
+
+  & a {
+    color: #333;
+    transition: $mid-ease;
+    &:hover {
+    color: $accent-color;
+    }
+  }
+
+   .post-date {
+      font-size: 85%;
+      font-weight: 400;
+  }
+}
+
+.next-post-title {
+   .link-text {
+   }
+}
+
+.previous-post-title {
+  .thumb-wrapper {
+  }
+}
+
+
+
+.link-text {
+  width: auto;
+  max-width: 90%;
+  letter-spacing: -0.03em;
+  position: absolute;
+  text-align: right;
+  bottom: 10px;
+  right: 1rem;
+  color: #fff!important;
+
+  .previous-post-title & {
+      text-align: left;
+      right: auto;
+      left: 1rem;
+  }
+}
+
+
+
+// #RELATED-POSTS
+// 
+
+#related-posts {
+  margin-top: 6rem;
+  position: relative;
+  .related-posts-container {
+     margin: 0;
+     display: grid;
+     grid-template-columns: 1fr;
+     grid-template-rows: 400px 100px 100px;
+     grid-gap: 1em;
+     max-width: 100%;
+
+     @include respond-to(medium) {
+      grid-template-columns: repeat(3, 1fr);
+     grid-template-rows: repeat(1, 250px);
+     }
+    } // .related-posts-container
+
+
+.related-post-wrapper {
+  height: 100%;
+      &:nth-of-type(1) {
+        .related-post {
+          &:before {
+            // background: $poncho;
+          }
+        }
+    }
+          &:nth-of-type(2) {
+        .related-post {
+          &:before {
+            // background: $ibiza-sunset;
+          }
+        }
+    }
+          &:nth-of-type(3) {
+        .related-post {
+          &:before {
+            // background: $intuitive-purple;
+          }
+        }
+    }
+
+    .related-post {
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+      height: 100%;
+      background-size: cover;
+      background-position: center center;
+      transition: $slow-ease;
+      &:before {
+        content: '';
+        position: absolute;
+        display: block;
+        top: 0;
+        right: 0;
+        left: 0;
+        right: 0;
+        // z-index: 1;
+        background: $ash;
+        width: 100%;
+        height: 100%;
+        opacity: .4;
+        transition: $slow-ease;
+    } // &:before;
+
+    &:hover {
+      &:before {
+        opacity: .7;
+      } // &:before;
+    } // &:hover;
+  } // .related-post
+} // .related-post-wrapper
+
+
+    .section-title-inner {
+      text-align: left;
+    }
+
+
+
+     .post-date {
+      font-size: 85%;
+      font-weight: 400;
+    }// .post-date
+
+} //#related-posts
+
+  .related-post-title {
+      @extend .small;
+      color: #fff!important;
+      font-weight: 600!important;
+      padding: .5rem 1rem;
+      line-height: 1.4;
+      transition: $mid-smooth;
+      z-index: 1;
+      text-shadow: $shadow1;
+      transform: translateY(0);
+
+      .post-date {
+          display: block;
+      }
+
+      &:hover {
+        transform: translateY(-10px);
+      }
+    } // end .related-post-title
+
+
+
+
+/*=================================
+=            MEGA-MENU            =
+=================================*/
+
+
+#mega-menu-top-bar-r {
+  display: flex!important;
+  flex-wrap: nowrap;
+  align-items: center;
+  justify-content: center;
+  box-shadow: $box3;
+
+  .has-centred-site-logo & {
+    align-items: flex-start;
+    flex-wrap: nowrap;
+        @include breakpoint(xlarge) {
+          align-items: center;
+        }
+  }
+}
+
+h4.mega-block-title {
+  color: #fff!important;
+  font-size: 2rem!important;
+  font-family: var(--navigation-font)!important;
+  font-weight: 800!important;
+  // font-family: var(--sansserif-font)!important;
+  letter-spacing: var(--sansserif-font-letter-spacing);
+  margin-bottom: 3rem!important;
+  margin-left: calc(1.25rem + .9375rem)!important;
+  text-align: left;
+  text-transform: lowercase!important;
+  display: inline-block!important;
+  width: auto;
+  // @include shorty-bottom-border;
+  // border-bottom: 3px solid lightgrey!important;
+
+  .light-header & {
+    color: $lightnavcolor!important;
+    &:after {
+      border-bottom: 1px solid $accent-color;
+    }
+  }
+
+  &:after {
+    position: relative;
+    content: '';
+    display: inline-block;
+    width: 10rem;
+    height: 1rem;
+    border-bottom: 1px solid $darknavcolor;
+    margin-left: 1rem;
+  }
+}
+
+.mega-menu-link {
+  font-family: var(--navigation-font)!important;
+  font-weight: var(--navigation-font-variant)!important;
+  text-transform: var(--navigation-font-text-transform)!important;
+  letter-spacing: var(--navigation-font-letter-spacing)!important;
+      @include breakpoint(xlarge) {
+      }
+}
+
+
+
+.mega-sub-menu > .mega-menu-item > a {
+      padding: 1rem 1rem!important;
+  }
+
+
+
+.mega-no-shadow.mega-has-widget {
+  > .mega-sub-menu {
+      box-shadow: $boxBottomEdge!important;
+  }
+}
+
+
+.mega-menu-item-type-widget {
+  padding: 2rem 3rem!important;
+
+    .light-header & {
+      & a {
+        color: $lightnavcolor;
+          }
+    }
+    .dark-header & {
+      & a {
+        color: $darknavcolor;
+          }
+     }
+
+     & ul {
+      background: none;
+     }
+}
+
+.mega-menu-top-level-item>.mega-menu-link {
+  .light-header  & {
+    color: $lightnavcolor!important;
+  }
+  .dark-header & {
+    color: $darknavcolor!important;
+  }
+}
+
+.mega-menu-top-level-item:not(:last-child):not(.remove-border) {
+
+  border-right: 1px solid #fefefe!important;
+
+
+  .light-header  & {
+    border-right: 1px solid $lightnavcolor!important;
+  }
+
+  .dark-header  & {
+    border-right: 1px solid $darknavcolor!important;
+  }
+
+}
+
+// This is a triangle thingy (^) on the top of the sub-menu for styling - excluding 'has-widget' in order to avoid applying the style to the Recent Posts and Top 10 widgets in the Mega Menu
+.mega-menu-top-level-item:not(.mega-has-widget)>.mega-sub-menu {
+  &:before {
+  transition: .2s border ease-in-out;
+  left: 1rem!important;
+  top : -1.5rem!important;
+  z-index: 1;
+  position: absolute;
+  display: inline-block!important;
+  width: 0;
+  height: 0;
+  border-top: 12px solid transparent;
+  border-right: 12px solid transparent;
+  border-bottom: 12px solid var(--mmm-colour-1); // this var is set in _colours.scss
+  border-left: 12px solid transparent;
+  content: ''!important;
+  }
+}
+
+// We're toggling the class 'hover-colour-match' in JS in order to have the triangle match the background colour of the first 'mega-menu-link' in that mega-sub-menu
+.mega-menu-top-level-item:not(.-has-widget)>.mega-sub-menu.hover-colour-match {
+  &:before {
+  transition: .2s border ease-in-out;
+  left: 1rem!important;
+  top : -1.5rem!important;
+  z-index: 1;
+  position: absolute;
+  display: inline-block!important;
+  width: 0;
+  height: 0;
+  border-top: 12px solid transparent;
+  border-right: 12px solid transparent;
+  border-bottom: 12px solid var(--mmm-colour-2);
+  border-left: 12px solid transparent;
+  content: ''!important;
+  }
+}
+
+
+
+
+.menu-top-level-item>.mega-menu-link {
+  .light-header  & {
+    color: $lightnavcolor!important;
+  }
+  .dark-header & {
+    color: $darknavcolor!important;
+  }
+}
+
+.menu-top-level-item:not(:last-child) {
+
+  // border-right: 1px solid #fefefe!important;
+
+
+  .light-header  & {
+    // border-right: 1px solid $lightnavcolor!important;
+  }
+
+  .dark-header  & {
+    // border-right: 1px solid $darknavcolor!important;
+  }
+
+}
+
+// This is a triangle thingy (^) on the top of the sub-menu for styling - excluding 'has-widget' in order to avoid applying the style to the Recent Posts and Top 10 widgets in the Mega Menu
+.menu-top-level-item>.submenu {
+  &:before {
+  transition: .2s border ease-in-out;
+  left: 1rem!important;
+  top : -1.5rem!important;
+  z-index: 1;
+  display: inline-block!important;
+  position: absolute;
+  width: 0;
+  height: 0;
+  border-top: 12px solid transparent;
+  border-right: 12px solid transparent;
+  border-bottom: 12px solid var(--mmm-colour-1); // this var is set in _colours.scss
+  border-left: 12px solid transparent;
+  content: ''!important;
+  }
+}
+
+// We're toggling the class 'hover-colour-match' in JS in order to have the triangle match the background colour of the first 'mega-menu-link' in that mega-sub-menu
+.menu-top-level-item>.submenu.hover-colour-match {
+  &:before {
+  transition: .2s border ease-in-out;
+  left: 1rem!important;
+  top : -1.5rem!important;
+  z-index: 1;
+  position: absolute;
+  display: inline-block!important;
+  width: 0;
+  height: 0;
+  border-top: 12px solid transparent;
+  border-right: 12px solid transparent;
+  border-bottom: 12px solid var(--mmm-colour-2);
+  border-left: 12px solid transparent;
+  content: ''!important;
+  }
+}
+
+
+
+
+#mega-menu-wrap-top-bar-r #mega-menu-top-bar-r > li.mega-menu-megamenu > ul.mega-sub-menu {
+  .has-widescreen-block.dark-header &, .has-widescreen-block.light-header & {
+  border: none!important;
+  }
+}
+
+
+/*=============================================
+=            RECENT POSTS in MEGA MENU            =
+=============================================*/
+
+.mega-menu-item-type-widget.rpwe_widget {
+  .rpwe-ul {
+    @include xy-grid;
+    margin: 0 1.25rem 0 1.25rem!important;
+    .rpwe-li {
+      position: relative;
+      @include xy-cell(auto);
+      border-bottom: none;
+    }
+    .rpwe-title {
+      display: block;
+        text-align: left;
+        line-height: 1;
+        font-size: 1.953em!important;
+      a {
+        margin: 1.414em 0 0.5em!important;
+        .light-header & {
+          color: $lightnavcolor;
+        }
+        color: #fff;
+      &:before {
+        content: '';
+        display: block;
+        border-top: 1px solid $accent-color;
+        position: relative;
+        left: 0;
+        top: -.5rem;
+        height: 1px;
+        width: 2rem;
+        margin-right: 1rem;
+        }
+      }
+    }
+
+    .rpwe-time {
+      margin-top: .3rem;
+      display: block;
+      font-family: var(--small-font);
+    }
+    .rpwe-img {
+      display: block!important;
+      position: relative;
+      width: 100%;
+      overflow: hidden;
+      margin-bottom: 2rem;
+      &:hover {
+        &:before {
+          opacity: .4;
+        }
+        &:after {
+          opacity: 1;
+          // transform: scale3d(1.2,1.2,1.2);
+        }
+      } // end :hover
+      &:before {
+        content: '';
+        width: 100%;
+        position: absolute;
+        height: calc(100% - 4px);
+        top: 2px;
+        left: 0;
+        bottom: 0;
+        right: 0;
+        z-index: 1000;
+        background: $neon-life;
+        transition: $mid-ease;
+        opacity: 0;
+      }
+      &:after {
+        content: '\f138';
+        font-family: 'Font Awesome 5 Free';
+        text-transform: uppercase;
+        letter-spacing: .2em;
+        font-weight: 600;
+        font-size: 4rem;
+        height: auto;
+        height: 100%;
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        color: #fff;
+        // background: #fff;
+        position: absolute;
+        z-index: 1001;
+        // top: 0;
+        // left: 0;
+        padding: 0 2rem;
+        transition: $mid-ease;
+        // transform: scale3d(1,1,1);
+        opacity: 0;
+        box-shadow: $box3;
+        border: 20px solid #fff;
+        will-change: opacity, transform;
+      }
+    } // end .rpwe-img
+    .rpwe-thumb {
+      position: relative;
+      border: none!important;
+      padding: 0!important;
+      overflow: hidden;
+    }
+    .rpwe-summary {
+        margin-top: 1rem;
+        font-family: var(--small-font);
+        font-weight: 300;
+        line-height: 1;
+        font-size: 13px;
+        color: #666;
+
+        .dark-header &, .transparent-header & {
+          color: lightgrey;
+        }
+    }
+  } // end .rpwe-ul
+} // end .mega-menu-item-type-widget.rpwe_widget
+
+
+.mega-menu-item-type-widget.tptn_posts_list_widget {
+  ol {
+    @include xy-grid;
+    counter-reset: tptn-counter;
+    list-style-type: none;
+    li {
+      position: relative;
+      @include xy-cell(12);
+      border-bottom: none;
+      display: flex;
+      flex-direction: column;
+      justify-content: start;
+      flex-grow: 1;
+      margin-bottom: 5rem;
+      @include breakpoint(medium) {
+        @include xy-cell(auto);
+        margin-bottom: 0;
+      }
+      &:hover {
+        &:before {
+          transform: translate3d( 0, 0, 0) scale(1.2);
+          transition: transform 0.1s;
+          color:$accent-color;
+        }
+      } // end &:hover;
+      &:first-of-type {
+        // flex-grow: 2;
+        &:before {
+          // font-size: 5rem;
+        }
+        &:hover {
+          &:before {
+            color: $first-menu-item-colour;
+          }
+        }
+        & .tptn_title {
+          // line-height: 1.2;
+          @include breakpoint(medium) {
+            // font-size: 2.2rem;
+          }
+        }
+      } // end :first-of-type;
+      &:nth-of-type(2) {
+        &:hover {
+          &:before {
+            color: $second-menu-item-colour;
+          }
+        }
+      }
+      &:nth-of-type(3) {
+        &:hover {
+          &:before {
+            color: $third-menu-item-colour;
+          }
+        }
+      }
+      &:nth-of-type(4) {
+        display: none;
+        &:hover {
+          &:before {
+            color: $fourth-menu-item-colour;
+          }
+        }
+      }
+      &:nth-of-type(5) {
+        display: none;
+        &:hover {
+          &:before {
+            color: $fifth-menu-item-colour;
+          }
+        }
+      }
+
+      @include breakpoint(large) {
+                &:nth-of-type(4) {
+                  display: flex;
+                }
+                &:nth-of-type(5) {
+                  display: flex;
+                }
+          }
+      &:before {
+        content: counter(tptn-counter);
+        counter-increment: tptn-counter;
+        position: absolute;
+        top: 0;
+        left: 0;
+        z-index: 100;
+        background: #fefefe;
+        font-size: 2rem;
+        font-family: var(--sansserif-font);
+        font-weight: 900!important;
+        padding: 0 1rem;
+        pointer-events: none;
+        transform: translate3d( 0, 0, 0) scale(1);
+        transition: transform 0.3s ease-out;
+        will-change: transform;
+      }
+    } // end li
+  } // end ol
+
+  .tptn_title {
+      @extend h2;
+      color: #fff;
+      line-height: 1;
+      margin-bottom: .5rem;
+      .light-header & {
+        color: $lightnavcolor;
+      }
+      &:before {
+        content: '';
+        display: block;
+        border-top: 1px solid $accent-color;
+        position: relative;
+        left: 0;
+        bottom: .5rem;
+        height: 1px;
+        width: 2rem;
+        margin-right: 1rem;
+        }
+    }
+
+    .tptn_after_thumb {
+      display: block;
+      margin-top: 2rem;
+    }
+
+  .tptn_link {
+    @extend .rpwe-img;
+  }
+
+  .tptn_date {
+      display: block;
+      font-family: var(--small-font)!important;
+      font-size: 11px;
+      color: #bbb;
+      margin-top: .3rem;
+  }
+
+  .crp_author {
+    @extend .tptn_date;
+    & a {
+      font-weight: 900;
+      font-family: Poppins, Montserrat;
+    }
+  }
+
+
+.tptn_thumb_container {
+  display: block;
+  overflow: hidden;
+  position: relative;
+  transition: $slow-ease;
+  max-width: 300px;
+  &:before {
+    content:'';
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: $haikus;
+    opacity: .2;
+    transition: $slow-ease;
+  }
+  &:hover {
+    &:before {
+      opacity: .05;
+    }
+  }
+}
+
+  .tptn_thumb {
+    margin-bottom: auto;
+    transition: $slow-ease;
+    width: 100%;
+    img {
+    }
+    &:hover {
+    }
+  }
+
+  .tptn_excerpt {
+    display: block;
+    font-size: 14px;
+    line-height:1;
+    font-family: var(--small-font);
+    font-weight: 300;
+    color: #222;
+    margin-top: 1rem;
+    .dark-header &, .transparent-header & {
+          color: lightgrey;
+    }
+  }
+
+
+} // end .mega-menu-item-type-widget.tptn_posts_list_widget
+
+
+
+
+
+
+
+/*=====  End of MEGA-MENU  ======*/
+
+
+
+
+/*=====================================
+=            STICKY HEADER            =
+=====================================*/
+
+
+.sticky-header-container {
+  display: block;
+  position: fixed;
+  z-index: -1;
+  height: auto;
+  width: 100%;
+  max-width: 100vw;
+  transition: $mid-ease;
+  opacity: 0;
+
+  .hamburger {
+    .hamburger-inner {
+      background-color: #222!important;
+      &:before, &:after {
+        background-color: #222!important;
+      }
+    }
+  } // end .hamburger
+}
+
+#sticky-header {
+  display: flex;
+  display: none; // we will show it for viewports where mobile menu is hidden
+  justify-content: center;
+  align-items: center;
+  background: var(--accent-color);
+  
+  position: relative;
+  margin: 0!important;
+  padding: .25rem 1rem;
+  box-shadow: $box4;
+      @include breakpoint(large) {
+        display: flex;
+    }
+}
+
+
+.sticky-header-logo {
+  margin-right: auto;
+  img {
+    max-height: 3rem;
+    margin-top: .5rem;
+    margin-left: .5rem;
+  }
+}
+
+.dummy-sticky-header-logo {
+  @extend .sticky-header-logo;
+  opacity: 0;
+  visibility: hidden;
+  display: none;
+  @include breakpoint(large) {
+      display: block;
+      }
+}
+
+.sticky-header-label {
+  @extend .small;
+  font-size: 11px!important;
+  display: none;
+  line-height: 24px;
+  margin-right: 3rem;
+  @include breakpoint(large) {
+      display: block;
+      }
+  span {
+    color: var(--stickyheader-title-color);
+    display: inline-block;
+    line-height: 24px;
+    vertical-align: baseline;
+  }
+}
+
+#now-reading {
+  position: relative;
+  width: auto;
+  display: none;
+  @include breakpoint(large) {
+      display: block;
+      }
+  h4 {
+    font-family: var(--widget-font);
+    color: var(--stickyheader-title-color);
+    font-weight: 700;
+    font-size: .85rem;
+    margin: 0;
+    letter-spacing: -0.02em;
+  }
+}
+
+
+
+/*=====  End of STICKY HEADER  ======*/
+
+
+
+/*==================================
+=            PAGINATION            =
+==================================*/
+
+
+.pagination {
+  margin-top: 10rem;
+  a {
+    color: grey;
+  }
+}

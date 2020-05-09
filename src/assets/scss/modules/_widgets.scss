@@ -1,0 +1,860 @@
+
+
+.widget-title {
+	font-family: var(--widget-title-font);
+	font-size: var(--widget-title-font-size);
+	font-weight: var(--widget-title-font-variant);
+	letter-spacing: var(--widget-title-letter-spacing);
+	text-transform: var(--widget-title-text-transform);
+	text-align: var(--widget-title-text-align);
+	border-bottom: 1px solid lightgrey;
+	padding-bottom: .3rem;
+	margin-bottom: 3rem;
+	display: block;
+	width: 100%;
+	z-index: -1;
+	.mobile-off-canvas-menu & {
+		color: var(--offcanvas-text-colour);
+	}
+}
+
+.widget {
+	font-family: var(--widget-font);
+	font-size: var(--widget-font-size);
+	font-weight: var(--widget-font-variant);
+	letter-spacing: var(--widget-letter-spacing);
+	text-transform: var(--widget-text-transform);
+	text-align: var(--widget-text-align);
+	margin: 0 auto;
+	margin-bottom: 10rem;
+	line-height: 1.8;
+	max-width: 35rem;
+
+	.sidebar & {
+		max-width: 35rem;
+	}
+	    @include breakpoint(medium) {
+	    }
+}
+
+
+// WIDGETS
+// execphp-3 ..... 'About Me'
+//
+
+#execphp-3 {
+	strong {
+		font-weight: 600;
+	}
+}
+#profile-widget-signature {
+	display: block;
+	margin: 0 auto;
+	max-width: 12rem;
+}
+
+#profile-widget-picture {
+	display: block;
+	height: 10rem;
+	width: 10rem;
+	position: relative;
+	background-size: cover;
+	background-repeat: no-repeat;
+	background-position: center center;
+	margin-bottom: 3rem;
+	margin: 0 auto 3rem auto;
+	border-radius: 50%;
+}
+
+
+
+.blog-social-container {
+	margin: 1rem auto;
+	padding-bottom: 1rem;
+	display: grid;
+	grid-template-columns: 1fr 1fr;
+	max-width: 100%;
+	width: 100%;
+	    @include breakpoint(medium) {
+			grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+	    }
+  // grid-template-rows: 25% 100px auto;
+	// flex-wrap: wrap;
+	// justify-content: start;
+	overflow: hidden;
+	white-space: nowrap;
+
+	& .fab {
+		color: #f3f3f3;
+		// color: lightgrey;
+		display: inline-flex;
+		justify-content: center;
+		align-items: center;
+		transition: $fast-ease;
+		padding: .75rem 1rem .75rem 1rem;
+		margin-top: .2rem;
+		// margin-left: -.1rem;
+		// flex-grow: 0;
+		background: var(--background-color);
+		// height: 2rem;
+		// transform: skew(20deg);
+		outline: 0;
+		position: relative;
+		// border-left: 2px solid var(--background-color);
+
+		&:before {
+			font-size: 1rem;
+			font-weight: 200;
+			// transform: skew(-20deg);
+			transition: $fast-ease;
+			opacity: 1;
+			// will-change: transform;
+		}
+
+		&:after {
+			content: '';
+			position: absolute;
+			display: inline-block;
+			z-index: 1;
+			bottom: 0;
+			width: 30%;
+			height: 2px;
+			border-bottom: 1px solid lightgrey;
+		}
+		&:hover {
+
+			&:before {
+				transform: translateY(-.1rem);
+			}
+			&:after {
+			border-bottom: 1px solid transparent;
+
+				// opacity: 1;
+			}
+		}
+	}
+
+	& .fa-facebook {
+		background: $facebook;
+		&:after {
+			border-bottom: 1px solid $facebook;
+			background: $facebook;
+		}
+		&:hover {
+			color: #f3f3f3;
+			background: darken($facebook, 0%);
+		}
+		}
+
+	& .fa-facebook-f {
+		background: $facebook;
+
+		&:after {
+			border-bottom: 1px solid $facebook;
+			background: $facebook;
+		}
+		&:hover {
+			color: #f3f3f3;
+			background: darken($facebook, 0%);
+		}
+		}
+
+	& .fa-instagram {
+		background: $instagram;
+
+		&:after {
+			border-bottom: 1px solid $instagram;
+			background: $instagram;
+		}
+
+		&:hover {
+			color: #f3f3f3;
+			background: darken($instagram, 0%);
+		}
+		}
+
+	& .fa-twitter {
+		background: $twitter;
+
+		&:after {
+			border-bottom: 1px solid $twitter;
+			background: $twitter;
+		}
+
+		&:hover {
+			color: #f3f3f3;
+			background: darken($twitter, 0%);
+		}
+		}
+
+	& .fa-pinterest {
+		background: $pinterest;
+
+		&:after {
+			border-bottom: 1px solid $pinterest;
+			background: $pinterest;
+		}
+
+		&:hover {
+			color: #f3f3f3;
+			background: darken($pinterest, 0%);
+		}
+		}
+
+	& .fa-youtube {
+		background: $youtube;
+
+		&:after {
+			border-bottom: 1px solid $youtube;
+			background: $youtube;
+		}
+
+		&:hover {
+			color: #f3f3f3;
+			background: darken($youtube, 0%);
+		}
+		}
+
+	& .fa-medium-m {
+		background: $medium-light;
+
+		&:after {
+			border-bottom: 1px solid $medium-light;
+			background: $medium-light;
+		}
+
+		&:hover {
+			color: #f3f3f3;
+			background: darken($medium-light, 0%);
+		}
+		}
+
+	& .fa-github {
+		background: #222;
+
+		&:after {
+			border-bottom: 1px solid #222;
+			// background: $medium-light;
+		}
+
+		&:hover {
+			color: #f3f3f3;
+			// background: darken($medium-light, 0%);
+		}
+		}
+
+
+
+}
+
+
+
+.instagram_widget {
+	position: relative;
+	.site-footer & {
+		max-width: none;
+		width: 100%;
+		position: relative;
+
+	& .widget-title {
+		text-align: center;
+		display: inline-block;
+		width: auto;
+		margin-left: 50%;
+		transform: translateX(-50%);
+		position: relative;
+		&:before {
+			content: '\f16d';
+			display: block;
+			color: var(--accent-color);
+			font-family: 'Font Awesome 5 Brands';
+			font-weight: 200;
+			font-size: 5rem;
+			line-height: 3rem;
+			padding: 2rem;
+			position: absolute;
+			left: 50%;
+			transform: translateX(-50%);
+			top: -7rem;
+			}
+			&:after {
+				display: none;
+			}
+		}
+	} // .site-footer &
+
+	& .widget-title {
+		position: relative;
+		@include widget_title_icon_brand('\f16d', $type: default);
+		}
+
+	.off-canvas & {
+		& .widget-title {
+			position: relative;
+			@include widget_title_icon_brand('\f16d', $type: offcanvas);
+			}
+		}
+
+
+	.footer-grid & {
+		    @include breakpoint(medium down) {
+				display: none;
+		    }
+	}
+
+	}
+
+.widget_tag_cloud {
+	& .tag-cloud-link {
+		display: inline-block;
+		color: #fff;
+		background: #2c2c2c;
+		padding: .5rem 1rem;
+		margin-bottom: .25rem;
+		font-size: .8rem!important;
+	&:hover {
+		background-color: lighten(#2c2c2c, 20%);
+	}
+	}
+
+		& .widget-title {
+		position: relative;
+		@include widget_title_icon('\f02b', $type: default);
+		}
+
+	.off-canvas & {
+		& .widget-title {
+			position: relative;
+			@include widget_title_icon('\f02b', $type: offcanvas);
+			}
+		}
+}
+
+.ig-spinner {
+	display: none!important;
+}
+
+
+
+.widget_categories {
+	& .widget-title {
+		position: relative;
+		@include widget_title_icon('\f02b', $type: default);
+	}
+}
+
+
+// Footer 'About Us' widget
+// #execphp-10 {
+// 	text-align: center;
+// }
+
+.site-footer .zendroidthemes_about_us {
+
+	& .widget-title {
+		position: relative;
+		@include widget_title_icon('\f1fa');
+	}
+}
+
+
+
+
+.zendroidthemes_about_me {
+
+		& .widget-title {
+		position: relative;
+		@include widget_title_icon('\f118', $type: default);
+		}
+
+	.off-canvas & {
+		& .widget-title {
+			position: relative;
+			@include widget_title_icon('\f118', $type: offcanvas);
+			}
+		}
+
+}
+
+
+
+
+// Recent Posts
+
+#recent-posts-4 {
+	.post-date	{
+		// @extend .small;
+		font-weight: 300!important;
+
+		display: block; // we want the date to occupy it's own line
+	}
+}
+
+
+// Monogram for off-canvas
+.widget-monogram {
+	max-width: 4rem!important;
+	display: block;
+	margin: 0 auto;
+	border-bottom: 1px solid var(--offcanvas-text-colour);
+	padding-bottom: 3rem;
+}
+
+
+
+// Top 10 plugin widget
+//
+
+
+
+.tptn_posts_list_widget:not(.mega-menu-item-type-widget) {
+
+		& .widget-title {
+		position: relative;
+		@include widget_title_icon('\f0e7', $type: default);
+		}
+
+		& .tptn_list_count {
+			font-weight: 600;
+		}
+
+	.off-canvas & {
+		& .widget-title {
+			position: relative;
+			@include widget_title_icon('\f0e7', $type: offcanvas);
+			}
+
+			ol {
+				list-style-type: none;
+			}
+
+			.tptn-title {
+				font-size: 1.953em;
+			}
+		}
+
+		ol {
+			list-style-position: inside;
+			margin: 0;
+			 ::marker {
+			 	color: #222;
+			 	font-weight: 600;
+			 	font-size: 1.2rem;
+			}
+
+			li {
+				position: relative;
+				&:before {
+					content: '';
+					position: absolute;
+					top: .1rem;
+					left: -.35rem;
+					left: 0;
+					width: 1.5rem;
+					height: 1.2rem;
+					z-index: -1;
+					transition: $mid-ease;
+					border-bottom: 1px solid lightgrey;
+				}
+				&:hover {
+					&:before {
+						width: 100%;
+					}
+				}
+			}
+		}
+
+	.tptn_title {
+		display: block;
+		font-weight: 400;
+		// font-size: 1.1rem;
+		margin: 1rem 0 .5rem 0;
+		// border-bottom: 1px dashed $accent-color;
+		// text-decoration: underline;
+	}
+
+	.tptn_after_thumb {
+		display: block;
+		margin-bottom: 2rem;
+	}
+
+
+
+.footer & {
+	& .tptn_date {
+		display: block;
+		color: #bbb;
+		&:before {
+			display: inline-block;
+			content: '•';
+			font-size: .8rem;
+			font-weight: 500;
+			margin-right: .3rem;
+		}
+	}
+
+	ol {
+		// list-style-position: outside;
+	}
+
+	.tptn_title {
+		font-size: .9rem;
+	}
+}
+
+
+} // end .tptn_posts_list_widget
+
+
+// Recent Posts Widget Extended (RPWE)
+//
+//
+
+
+.rpwe-block {
+	h3 {
+		font-weight: 300!important;
+	}
+}
+
+.rpwe_widget:not(.mega-menu-item-type-widget) {
+
+	.rpwe-li {
+		margin-top: 2rem;
+		.rpwe-thumb {
+			width: 50%;
+		}
+		&:nth-of-type(1) {
+			.rpwe-thumb {
+				width: 100%;
+				// margin-right: 0;
+				// padding: 0;
+			}
+		}
+	}
+	.rpwe-title {
+		font-family: var(--widget-font);
+		font-size: var(--widget-font-size)!important;
+		letter-spacing: var(--widget-letter-spacing);
+		 a {
+		 	padding-right: 1rem;
+		 }
+	}
+
+	.rpwe-time {
+		font-size: var(--widget-font-size);
+		position: relative;
+		margin-top: .5rem;
+		display: block;
+		&:before {
+			display: inline-block;
+			content: '•';
+			font-size: .8rem;
+			font-weight: 500;
+			margin-right: .3rem;
+
+		}
+	}
+
+	.rpwe-thumb {
+		border: 0!important;
+		margin-bottom: 1.5rem;
+		margin-right: 0!important;
+	}
+
+
+	& .widget-title {
+		position: relative;
+		@include widget_title_icon('\f017', $type: default);
+		}
+
+	.off-canvas & {
+		& .widget-title {
+			position: relative;
+			@include widget_title_icon('\f017', $type: offcanvas);
+			}
+
+		& .rpwe-li {
+			border-bottom: none;
+
+			&:first-of-type {
+				 .rpwe-title {
+					font-size: 1.8rem!important;
+				}
+			}
+		}
+
+		.rpwe-time {
+			border-bottom: 1px dashed lightgray;
+			z-index: -1;
+		}
+
+		.rpwe-title {
+			font-family: var(--headline-font);
+			font-size: 1.2rem!important;
+			line-height: 1;
+			letter-spacing: -0.03em;
+			color: var(--offcanvas-text-colour)!important;
+			& a {
+				color: var(--offcanvas-text-colour)!important;
+			}
+		}
+
+		}
+
+} // end .rpwe_widget:not(.mega-menu-item-type-widget)
+
+
+
+
+
+// Mailchimp signup
+//
+//
+.widget_mc4wp_form_widget {
+	form {
+		&:before {
+			display: block;
+			content: 'Get the latest updates direct to your inbox. And absolutely no spam, we promise.';
+			line-height: 1.6;
+			margin: 1rem 0;
+
+		}
+	}
+
+	#mailchimp-email-input-label {
+		&:before {
+			content: '\f2b6';
+			font-family: 'Font Awesome 5 Free';
+			color: lightgrey;
+			font-weight: 900;
+			margin-right: .5rem;
+		}
+	}
+
+	& .widget-title {
+		position: relative;
+		@include widget_title_icon('\f2b6', $type: default);
+		}
+
+	.off-canvas & {
+		& .widget-title {
+			position: relative;
+			@include widget_title_icon('\f2b6', $type: offcanvas);
+			}
+		}
+
+		& .mc4wp-response {
+			.mc4wp-alert, .mc4wp-notice {
+				background: #222;
+				color: #fff;
+				font-weight: 500;
+				padding: 1rem;
+				box-shadow: $box3;
+			}
+		}
+}
+
+
+// Mailchimp signup (off-canvas)
+//
+
+// .mobile-off-canvas-menu .widget_mc4wp_form_widget {
+// 	.widget-title {
+// 		&:after {
+// 			background: var(--offcanvas-background-colour);
+// 		}
+// 	}
+// 	form {
+// 		&:before {
+// 			color: var(--offcanvas-text-colour);
+// 		}
+// 	}
+// }
+
+
+// Recent Posts Widget Extended (off-canvas)
+// //
+
+.mobile-off-canvas-menu .recent-posts-extended {
+	.rpwe-title {
+		color: var(--offcanvas-text-colour);
+	}
+}
+
+
+
+// Access-Press Twitter Feed widget
+
+.widget_aptf_widget {
+
+	& .widget-title {
+		position: relative;
+		@include widget_title_icon_brand('\f099', $type: default);
+		}
+
+	.off-canvas & {
+		& .widget-title {
+			position: relative;
+			@include widget_title_icon_brand('\f099', $type: offcanvas);
+			}
+		}
+
+
+
+}
+
+.aptf-single-tweet-wrapper {
+	float: none!important;
+	position: relative;
+
+}
+
+
+.aptf-tweet-date {
+	margin-top: .5rem;
+}
+
+
+.aptf-timestamp {
+	a {
+		color: #bbb;
+	}
+}
+
+
+// This is the Top Ten widget from the Off-Canvas area
+.off-canvas .tptn_posts_list_widget
+ {
+
+  ol {
+    list-style-type: none;
+    counter-reset: tptn-counter-offcanvas;
+    margin: 0;
+    li {
+      position: relative;
+      // border-bottom: 1px dashed var(--offcanvas-text-colour);
+      margin-bottom: 3rem;
+    }
+  }
+
+  .tptn_title {
+      @extend h2;
+      letter-spacing: -0.03em;
+      display: inline-block;
+      color: #222;
+      color: var(--offcanvas-text-colour)!important;
+      line-height: 1.2;
+      margin-top: 0;
+  }
+
+  .crp_author, .tptn_date {
+		color: var(--offcanvas-text-colour);
+		padding-bottom: .4rem;
+    	border-bottom: 1px dashed lightgrey;
+  }
+
+  .crp_author {
+  	&:after {
+    		content: '|';
+    		display: inline-block;
+    		position: relative;
+    		margin-left: .5rem;
+    	}
+  }
+
+  .tptn_date {
+  	padding-left: .4rem;
+  }
+
+  .tptn_thumb_container {
+    display: inline-block;
+    margin-bottom: 1rem;
+    position: relative;
+    // border-bottom: 1px dashed var(--offcanvas-text-colour);
+
+    &:before {
+        content: counter(tptn-counter-offcanvas);
+        counter-increment: tptn-counter-offcanvas;
+        position: absolute;
+        top: 0;
+        left: 0;
+        z-index: 100;
+        color: var(--offcanvas-text-colour);
+        background: var(--offcanvas-background-colour);
+        font-size: 2rem;
+        font-family: var(--sansserif-font);
+        font-weight: 900;
+        padding: 0 10%;
+        pointer-events: none;
+        transition: $mid-ease;
+        will-change: transform;
+      }
+  }
+} // end .off-canvas .tptn_posts_list_widget
+
+
+// MashShare -  Most Shared Posts
+.widget_mashsb_mostshared_posts_widget {
+	& .widget-title {
+		position: relative;
+		@include widget_title_icon('\f1e0', $type: default);
+		}
+
+	.off-canvas & {
+		& .widget-title {
+			position: relative;
+			@include widget_title_icon('\f1e0', $type: offcanvas);
+			}
+		}
+
+
+	 .mashsb-widget-img {
+		max-width: 100%!important;
+		height: 15rem!important;
+		margin-top: 1rem;
+		margin-bottom: 1rem;
+
+		@include breakpoint(large down) {
+	 		width: 100%!important;
+		}
+
+		@include breakpoint(large) {
+			height: 10rem!important;
+		}
+		 a.mashsb-widget-link {
+		 	display: block;
+		 	width: 100%!important;
+		 	height: auto;
+		 }
+	 }
+
+	 .mashsb-widget-post-title {
+	 	font-weight: 600;
+	 	font-size: 1.1rem;
+	 	line-height: 1.6;
+	 	margin-bottom: .5rem;
+		border-bottom: 1px dashed $accent-color;
+		border-bottom: 1px dashed lightgrey;
+		padding-bottom: .8rem;
+
+	 }
+
+	 .mashsb-share-widget li {
+	 	margin-bottom: 2rem;
+	 }
+
+
+	 .mashsb-excerpt {
+	 	// display: block;
+	 	// margin-top: 1rem;
+	 	font-size: inherit;
+	 }
+
+	 .mashicon-share {
+	 	margin-top: .5rem;
+	 	&:before {
+	 		color: grey;
+	 	}
+	 }
+}

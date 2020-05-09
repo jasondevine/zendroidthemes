@@ -1,0 +1,441 @@
+.featured-hero {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  position: relative;
+  z-index: -1;
+  background-size: cover;
+  background-position: center center;
+  background-repeat: no-repeat;
+  height: rem-calc(350);
+
+  @include breakpoint(large) {
+    justify-content: center;
+    height: rem-calc(500);
+    margin-top: -16rem; // this will need to be applied programtically somehow, it's only a guesstimate at the moment; based on the overall height of .site-header, which is only implicit
+  }
+
+  @include breakpoint(xlarge) {
+    height: rem-calc(600);
+    margin-top: -16rem; // this will need to be applied programtically somehow, it's only a guesstimate at the moment; based on the overall height of .site-header, which is only implicit
+  }
+
+  .single & {
+        @include breakpoint(medium) {
+            border-left:20px solid #fff;
+            border-right:20px solid #fff;
+        }
+  }
+
+  .has-centred-site-logo & {
+     @include breakpoint(medium) {
+          margin-top: calc(20px + 2rem);
+        }
+        @include breakpoint(large) {
+          margin-top: -17rem;
+        }
+  }
+
+  .light-header &, .dark-header & {
+        @include breakpoint(medium) {
+          margin-top: calc(20px + 2rem);
+        }
+        @include breakpoint(large) {
+          margin-top: 20px;
+          min-height: rem-calc(450)!important;
+        }
+  }
+
+  .light-header.featured-hero-title-below &, .dark-header.featured-hero-title-below & {
+    @include breakpoint(large) {
+          height: rem-calc(450)!important;
+        }
+  }
+
+  &:before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: $smokebox2;
+    opacity: 0.8;
+  }
+
+  .page-template.light-header &, .page-template.dark-header &, .page-template.transparent-header & {
+      @include breakpoint(large) {
+          // margin-top: 20px;
+      }
+  }
+
+
+
+
+} // end .featured-hero
+
+.featured-image-over-and-under {
+  @include image-zoomer;
+}
+
+.featured-image-side-by-side {
+  @include image-zoomer;
+  position: relative;
+  z-index: 1;
+}
+
+.featured-image-list {
+  @include image-zoomer;
+}
+
+// This is where we detected the featured image was a GIF, and we'd like to be able to see the animation as a background
+.featured-hero-gif {
+  @extend .featured-hero;
+  background-repeat: no-repeat!important;
+  background-size: cover!important;
+  background-position: center center!important;
+}
+
+// The post title
+.hero-title {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  color: #fff;
+  text-align: center;
+  padding: 3rem;
+  line-height: 1;
+  @include breakpoint(medium) {
+    font-size: 4rem;
+  }
+  @include breakpoint(large) {
+    margin-top: 10rem;
+    font-size: 6rem;
+  }
+}
+
+
+
+.featured-hero-with-title {
+  position: relative;
+  z-index: 1000;
+  height: auto!important;
+  padding: 2rem 0 5rem 0;
+  .entry-title  {
+    padding: 0 1rem;
+    color: white;
+    margin-top: 1rem;
+    text-shadow: $shadow1;
+    text-align: left!important;
+    z-index:1;
+    margin-bottom: 4rem;
+        @include breakpoint(medium) {
+            margin-top: 8rem;
+            padding: 0 2rem;
+        }
+        @include breakpoint(large) {
+          margin-top: 18rem;
+          padding: 0 6rem;
+          text-align: center!important;
+        }
+
+    .has-centred-site-logo.transparent-header & {
+          @include breakpoint(large) {
+          }
+    }
+  }
+
+  .transparent-header & {
+        @include breakpoint(large) {
+          min-height: 45rem!important;
+          // margin-top: 20rem;
+        }
+  }
+
+
+} // end .featured-hero-with-title
+
+
+.featured-video-container {
+    height: calc(100% + 10rem); // the 10rem default value here reflects the negative margin-top value we're applyiong in order to pull the container
+    // up under the mobile navigation, otherwise there's a gap on smaller viewports. Returning the height value back to 100%
+    // after medium breakpoint
+    margin-top: -10rem;
+    width:100%;
+    position:absolute;
+    top: 0;
+    // overflow-x: hidden;
+            &:before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: $smokebox2;
+            opacity: 0.8;
+          }
+
+  
+    .orbit-slide & {
+    z-index: 0;
+    }
+    
+    @include breakpoint(medium) {
+      height: 100%;
+      margin-top: 0;
+      border-left:20px solid #fff;
+      border-right:20px solid #fff;
+    }
+    @include breakpoint(large) {
+    }
+
+    .featured-hero-title-below.transparent-header & {
+
+          @include breakpoint(medium) {
+            margin-top: calc(20px + 2rem);
+            border-left:20px solid #fff;
+            border-right:20px solid #fff;
+          }
+          @include breakpoint(large) {
+            margin-top: -17rem!important;
+          }
+      .featured-video-inner {
+        width: auto;
+      }
+    }
+  .featured-hero-title-contained.transparent-header & {
+        min-height: 50rem!important;
+      @include breakpoint(medium) {
+
+            margin-top: calc(20px + 2rem);
+            border-left:20px solid #fff;
+            border-right:20px solid #fff;
+          }
+              @include breakpoint(large) {
+                .entry-title {
+                    margin-left: auto;
+                    margin-right: auto;
+                    margin-top: 23rem;
+                }
+              }
+      .featured-video-inner {
+        width: 100%;
+      }
+  }
+  .single & {
+    position: relative;
+    max-width: 100vw;
+        @include breakpoint(medium) {
+          min-height: 30rem!important;
+        }
+      @include breakpoint(large) {
+          margin-top: 5rem;
+            .entry-title {
+            }
+      }
+    } // .single &
+
+    .featured-hero-title-below & {
+      height: auto;
+    }
+
+    .entry-title {
+      margin-top: 10rem;
+      margin-right: auto;
+      margin-left: auto;
+    }
+
+    .single.transparent-header & {
+          @include breakpoint(medium) {
+            margin-top: calc(20px + 2rem);
+          }
+          @include breakpoint(large) {
+            margin-top: -19rem;
+          }
+    }
+} // end .featured-video-container
+
+
+.featured-video-inner {
+  display: block;
+  height: 100%!important;
+  overflow: hidden;
+  position: absolute;
+  width: 100%;
+  top: 0;
+  left: 0;
+  z-index: -1;
+      @include breakpoint(medium) {
+      }
+
+
+  .featured-hero-title-below & {
+    height: 20rem!important;
+    position: relative;
+        @include breakpoint(medium) {
+            height: 35rem!important;
+        }
+  }
+}
+
+.featured-video {
+  position:absolute;
+    left: 50%;
+    top: auto;
+    top: 0;
+    bottom: 0;
+    z-index:1;
+    min-width: 100vw;
+    min-height: 100%;
+    width: auto;
+    height: auto;
+    transform: translateX(-50%);
+    margin-bottom: 0;
+@include breakpoint(xlarge) {
+  overflow: hidden;
+  // height: 80rem;
+  height: auto!important;
+  // width: 100vw!important;
+  // min-width: 100%;
+  right: 0;
+  top: 0;
+  // left: 0;
+  bottom: 0;
+  // transform: translate(0,0)
+    }
+
+    .standard-post-layout-title-above & {
+      position: relative;
+      right: auto;
+      top: auto;
+      left: auto;
+      transform: none;
+      min-width: 0;
+      min-height: 0;
+      width: 100%!important;
+      height:auto;
+      z-index: -1;
+      margin: 3rem 0;
+      
+    }
+    .standard-post-layout-title-below &  {
+      position: relative;
+      right: auto;
+      top: auto;
+      left: auto;
+      transform: none;
+      min-width: 0;
+      min-height: 0;
+      width: 100%!important;
+      height:auto;
+      z-index: -1;
+      margin: 2rem 0;
+    }
+
+    .standard-post-layout-title-below.has-sidebar-off & {
+      width: 130%!important;
+      left: -15%;
+    }
+
+
+
+
+} // end .featured-video
+
+.video-container {
+  height: auto;
+  overflow: hidden;
+  margin-top: 5rem;
+  margin-bottom: 4rem;
+  margin-left: -0.625rem; // this is the negative of the 'padding-left' on the .main-container element, to
+  // force it to the left edge of the viewport. We remove it at large breakpoint
+  width: 100vw;
+
+  .standard-post-layout-title-above & {
+    margin-left: -1.25rem;
+        @include breakpoint(medium) {
+          margin-left: auto;
+        }
+  }
+
+  .featured-video {
+    margin: 0;
+   }
+
+       @include breakpoint(medium) {
+          margin-left: auto;
+          width: 100%;
+       }
+
+       @include breakpoint(large) {
+          height: 30rem;
+          .featured-video {
+            top: -2rem;
+          }
+       }
+}
+
+
+
+
+  .featured-video-container-masonry, .featured-video-container-list, .featured-video-container-over-and-under {
+    display: block;
+    position: relative;
+  }
+
+  .featured-video-container-side-by-side {
+        @include breakpoint(large) {
+          float: right;
+          margin: 1rem 0rem 2rem 1.5rem;
+          max-width: 25rem;
+        }
+  }
+
+  .featured-video-masonry, .featured-video-list, .featured-video-over-and-under {
+    display: block;
+    position: relative;
+    width: auto;
+    max-width: 100%;
+  }
+
+  .featured-video-side-by-side {
+    max-width: 100vw;
+        @include breakpoint(large) {
+          max-width: 25rem;
+        }
+  }
+
+
+  .featured-gif-masonry, .featured-gif-list {
+    height: 14rem;
+  }
+
+  .featured-gif-side-by-side {
+    position: relative;
+    display: block;
+    width: 100%;
+    height: 30rem;
+    background-repeat: no-repeat!important;
+    background-size: cover!important;
+    margin-bottom: 2rem;
+        @include breakpoint(large) {
+            max-width: 25rem;
+            // width: 25rem;
+            float: right;
+            height: 250px;
+        }
+  }
+
+.featured-hero-title-contained.has-thumbnail {
+  .main-container {
+    .entry-title  {
+      display: none;
+    }
+    .subheading {
+      display: none;
+    }
+  }
+}

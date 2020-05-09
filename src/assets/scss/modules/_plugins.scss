@@ -1,0 +1,225 @@
+// MashShare
+
+.mashsb-container {
+	margin: 6rem 0 2rem 0;
+	clear: both;
+	font-family: var(--small-font);
+
+	.list-post & {
+		margin: 0;
+		margin-left: auto; // to push it to the right inside the flexbox parent ('.meta-container')
+	}
+}
+
+.mashsb-box {
+	font-weight: 600;
+	letter-spacing: -0.025em;
+}
+
+.mashsb-count {
+	font-size: 3rem!important;
+	font-family: var(--sansserif-font)!important;
+	color: var(--accent-color)!important;
+	font-weight: 900!important;
+	letter-spacing: -0.05em;
+	margin-right: 2rem!important;
+}
+
+.mashsb-sharetext {
+	display: block!important;
+	@extend .widget-title;
+	font-family: var(--widget-title-font)!important;
+	color: #333!important;
+	font-weight: 500;
+	padding-top: 1rem;
+}
+
+.mashsb-buttons {
+	& .text {
+		font-family: var(--main-font)!important;
+		font-size: 1.2rem;
+		line-height: 1.5;
+		font-weight: 600;
+		letter-spacing: 0;
+	}
+	& .icon {
+		&:before {
+			font-size: 1.5rem!important;
+		}
+	}
+}
+
+
+
+
+
+
+
+// Easy Fancybox
+
+
+.fancybox {
+	position: relative;
+	& figure {
+		position: relative;
+		transition: $fast-ease;
+		&:before {
+				content: '\f00e';
+			    font-family: 'Font Awesome 5 Free';
+			    font-size: 0;
+			    font-weight: 900;
+				color: #fff;
+				position: absolute;
+				top: .5rem;
+				right: 1rem;
+				left: auto;
+				z-index: 1;
+				opacity: 0;
+				transition: $fast-ease;
+			}
+		& img {
+			transition: $fast-ease;
+		}
+	}
+	&:hover {
+		& figure {
+			&:before {
+			    font-size: 2rem;
+				opacity: 1;
+			}
+			& img {
+				filter: brightness(90%);
+			}
+		}
+	}
+}
+
+
+
+
+
+// Top Ten
+
+
+.tptn_thumb {
+	margin-right: 1rem;
+}
+
+
+
+
+
+
+
+// 	Mailchimp for Wordpress
+
+
+.mc4wp-form {
+	font-family: var(--widget-font);
+	font-size: var(--widget-font-size);
+	line-height: 1;
+
+	input[type="submit"] {
+		@include button-default;
+		width: 100%;
+		margin-top: 1rem;
+		background: $haikus;
+	}
+	input[name="AGREE_TO_TERMS"] {
+		margin: 0 .4rem .4rem 0;
+	}
+	label.terms-checkbox-label {
+		font-size: 80%;
+		line-height: 1;
+		text-align: left;
+	}
+
+}
+
+
+#subscribe-splash {
+	max-width: 15rem;
+	margin: 0 auto;
+	display: block;
+	position: relative;
+}
+
+
+
+
+/*=======================================
+=            AJAX LOAD MORE (ALM)       =
+=======================================*/
+
+// Wrapper for the 'Older Posts' button
+.alm-btn-wrap {
+	margin-top: 6rem;
+}
+
+ul.alm-listing {
+	margin: 0;
+}
+
+
+
+/*=========================================
+=            INSTAGRAM GALLERY            =
+=========================================*/
+
+// The footer widget
+#null-instagram-feed-2 {
+	margin-bottom: 2rem;
+
+	&:before {
+		// content: ;
+	}
+	& .instagram-pics {
+		position: relative;
+	display: none; // we don't need it on smaller viewports as the sidebar version has wrapped under main content
+	min-width: 100vw;
+		&:before {
+			content: 'Instagram';
+			display: inline-block;
+			width: auto;
+			position: absolute;
+			top: -5rem;
+			left: 50%;
+			transform: translateX(-50%);
+			@extend .widget-title;
+		}
+	& li {
+		display: block;
+		width: auto;
+	}
+	    @include breakpoint(large) {
+	    	display: flex;
+			flex-direction: row;
+			flex-wrap: nowrap;
+	    }
+	}
+}
+
+
+
+/*=====  End of INSTAGRAM GALLERY  ======*/
+
+
+
+
+/*=============================
+=            KIRKI            =
+=============================*/
+
+
+.kirki-customizer-loading-wrapper {
+  // for some reason this won't actually show the image but it at least clobbers that svg pig that's been annoying me
+  background-image: url("<?php echo get_template_directory_uri(); ?>/library/images/Amplifier-default-mobile-logo.png")!important;
+  background-size: 100px 100px;
+}
+
+
+/*=====  End of KIRKI  ======*/
+
+
+
+

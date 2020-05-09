@@ -1,0 +1,442 @@
+/******************************************************************
+Site Name: http://www.zendroidthemes.com
+Author: Jason Devine
+
+Stylesheet: Mixins Stylesheet
+
+This is where you can take advantage of Sass' great features: Mixins.
+I won't go in-depth on how they work exactly,
+there are a few articles below that will help do that. What I will
+tell you is that this will help speed up simple changes like
+changing a color or adding CSS3 techniques gradients.
+
+A WORD OF WARNING: It's very easy to overdo it here. Be careful and
+remember less is more.
+
+Helpful:
+http://sachagreif.com/useful-sass-mixins/
+http://thesassway.com/intermediate/leveraging-sass-mixins-for-cleaner-code
+http://web-design-weekly.com/blog/2013/05/12/handy-sass-mixins/
+
+******************************************************************/
+
+
+
+
+///
+/// Viewport sized typography with minimum and maximum values
+///
+/// @author Eduardo Boucas (@eduardoboucas)
+///
+/// @param {Number}   $responsive  - Viewport-based size
+/// @param {Number}   $min         - Minimum font size (px)
+/// @param {Number}   $max         - Maximum font size (px)
+///                                  (optional)
+/// @param {Number}   $fallback    - Fallback for viewport-
+///                                  based units (optional)
+///
+/// @example scss - 5vw font size (with 50px fallback),
+///                 minumum of 35px and maximum of 150px
+///  @include responsive-font(5vw, 35px, 150px, 50px);
+///
+@mixin responsive-font($responsive, $min, $max: false, $fallback: false) {
+  $responsive-unitless: $responsive / ($responsive - $responsive + 1);
+  $dimension: if(unit($responsive) == 'vh', 'height', 'width');
+  $min-breakpoint: $min / $responsive-unitless * 100;
+
+  @media (max-#{$dimension}: #{$min-breakpoint}) {
+    font-size: $min;
+  }
+
+  @if $max {
+    $max-breakpoint: $max / $responsive-unitless * 100;
+
+    @media (min-#{$dimension}: #{$max-breakpoint}) {
+      font-size: $max;
+    }
+  }
+
+  @if $fallback {
+    font-size: $fallback;
+  }
+  font-size: $responsive;
+}
+
+
+
+
+/*===================================
+=            Breakpoints            =
+===================================*/
+
+$breakpoints: (
+  'tiny':  400px,
+  'small': 550px,
+  'mid':  768px,
+  'grid': 992px,
+  'large': 1240px,
+  'xlarge': 1440px
+) !default;
+
+/// Mixin to manage responsive breakpoints ... https://css-tricks.com/snippets/sass/mixin-manage-breakpoints/
+/// @author Hugo Giraudel
+/// @param {String} $breakpoint - Breakpoint name
+/// @require $breakpoints
+@mixin respond-to($breakpoint) {
+  // If the key exists in the map
+  @if map-has-key($breakpoints, $breakpoint) {
+    // Prints a media query based on the value
+    @media (min-width: map-get($breakpoints, $breakpoint)) {
+      @content;
+    }
+  }
+
+  // If the key doesn't exist in the map
+  @else {
+    @warn "Unfortunately, no value could be retrieved from `#{$breakpoint}`. "
+        + "Available breakpoints are: #{map-keys($breakpoints)}.";
+  }
+}
+
+
+@mixin shorty-bottom-border {
+  position: relative;
+  &:before {
+    transition: $mid-ease;
+    display: block;
+    z-index: 1000;
+    content: '';
+    position: absolute;
+    bottom: 0;
+    top: auto;
+    left: 50%;
+    transform: translatex(-50%);
+    height: 3px;
+    border-bottom: 3px solid var(--accent-color);
+    width: 0;
+  }
+  &:hover {
+    &:before {
+      width: 2rem;
+    }
+  }
+}
+
+
+@mixin transparent-header-background {
+  background-color: #fefefe;
+      @include breakpoint(large) {
+        background-color: var(--header-background-color);
+      }
+
+  .transparent-header & {
+    box-shadow: none;
+    @include breakpoint(large) {
+      background-color: transparent;
+    }
+  }
+}
+
+
+@mixin text-underline-crop($background) {
+  text-shadow:  .03em 0 $background, 
+                -.03em 0 $background,
+                0 .03em $background,
+                0 -.03em $background,
+                .06em 0 $background,
+                -.06em 0 $background,
+                .09em 0 $background,
+                -.09em 0 $background,
+                .12em 0 $background,
+                -.12em 0 $background,
+                .15em 0 $background,
+                -.15em 0 $background;
+}
+
+@mixin text-underline($color-bg, $color-text) {
+  background-image: linear-gradient($color-text, $color-text);
+  background-size: 1px 1px;
+  background-repeat: repeat-x;
+  background-position: 0% 90%;
+}
+
+@mixin text-selection($selection) {
+  &::selection {
+    @include text-underline-crop($selection);
+    background: $selection;
+  }
+
+  &::-moz-selection {
+    @include text-underline-crop($selection);
+    background: $selection;
+  }
+}
+
+@mixin link-underline($background, $text, $selection){
+  @include text-underline-crop($background);
+  @include text-underline($background, $text);
+  @include text-selection($selection);
+
+  color: $text;
+  text-decoration: none;
+
+  &:visited {
+    color: $text;
+  }
+}
+
+
+
+
+@mixin small-font {
+  font-family: var(--small-font);
+  font-size: calc(var(--small-font-size) * .9);
+  letter-spacing: var(--small-font-letter-spacing);
+  font-weight: var(--small-font-variant);
+  line-height: var(--small-font-line-height);
+  color: var(--small-font-color);
+  text-transform: var(--small-font-text-transform);
+      @include breakpoint(medium) {
+        font-size: var(--small-font-size);
+      }
+}
+
+
+
+@mixin byline_label {
+    display: inline-block;
+    font-family: var(--small-font);
+    font-size: 12px;
+    font-weight: 200;
+    color: #222;
+    text-transform: capitalize;
+    letter-spacing: 0;
+    position: relative;
+    margin-right: .5rem;
+    @include breakpoint(medium)
+    {
+        font-size: 14px;
+        &:before {
+          font-family: 'Font Awesome 5 Free';
+          font-weight: 900;
+          position: relative;
+          display: inline-block;
+          color: var(--accent-color);
+          margin-right: .6rem;
+      }
+    }
+    
+
+}
+
+@mixin byline_content {
+    font-family: var(--widget-title-font);
+    font-size: var(--widget-title-font-size);
+    font-weight: var(--widget-title-font-variant);
+    // font-weight: 600!important;
+    text-transform: uppercase;
+    letter-spacing: .15rem;
+    position: relative;
+    margin-right: 3rem;
+        @include breakpoint(medium) {
+            &:after {
+            content: '';
+            border-right: 1px solid #222;
+            position: relative;
+            height: 100%;
+            width: 1px;
+            right: -1.5rem;
+            bottom: 0;
+          }
+        }
+}
+
+// To explain this a little ( cos statistically this is exactly the sort of stuff I'll be looking at in 3 months and wondering wtf I was doing) ...
+// There are 2 parameters being passed into the mixin. $fontawesome_icon is self-explanatory - the escape code of the particular icon chosen.
+// $type is a toggle that will allow us to pass in some specific content when it varies from 'default'. So therefore we can pass it
+// some additional CSS for when the .widget-title is inside the off-canvas menu, as that has it's own unique dark/light modes that can be set in the
+// customizer, and we want the pseudo to match the colours of each of those modes. To use this, you just provide the 'offcanvas' parameter when calling the mixin from inside the '.off-canvas' selector. Easy, see?? Next level SASS
+@mixin widget_title_icon($fontawesome_icon,$type: default) {
+  &:after {
+      position: absolute;
+      content: $fontawesome_icon;
+      display: block;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-family: 'Font Awesome 5 Free';
+      font-weight: 600;
+      font-size: 2.2rem;
+      bottom: 1rem;
+      right: 1rem;
+      border-radius: 50%;
+      width: 3.5rem;
+      height: 3.5rem;
+      outline: 1px solid transparent;
+      backface-visibility: hidden;
+      font-smoothing: antialiased;
+      will-change: transform;
+      perspective: 1000;
+      transform: scale3d(1,1,1) translate3d(0,2rem,0) rotate3d(0,0,1,5deg);
+    }
+
+    @if $type == offcanvas {
+      &:after {
+      color: var(--offcanvas-text-colour);
+      background: var(--offcanvas-background-colour);
+      }
+    }
+    @else {
+      &:after {
+      color: var(--accent-color);
+      background: var(--background-color);
+      }
+    }
+
+}
+
+@mixin widget_title_icon_brand($fontawesome_icon,$type: default) {
+  &:after {
+      position: absolute;
+      content: $fontawesome_icon;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-family: 'Font Awesome 5 Brands';
+      font-weight: 600;
+      font-size: 2.2rem;
+      transform: translateY(2rem) rotate(10deg);
+      bottom: 1rem;
+      right: 1rem;
+      border-radius: 50%;
+      width: 3.5rem;
+      height: 3.5rem;
+    }
+
+    @if $type == offcanvas {
+      &:after {
+        color: var(--offcanvas-text-colour);
+        background: var(--offcanvas-background-colour);
+      }
+    }
+    @else {
+      &:after {
+        color: var(--accent-color);
+        background: var(--background-color);
+      }
+    }
+
+}
+
+
+
+// Image zoomer
+@mixin image-zoomer {
+    overflow: hidden!important; // as w're going to scale the img inside it on hover
+     img {
+      transition: 2s all ease-in;
+      backface-visibility: hidden;
+      perspective:1000;
+    }
+  &:hover {
+    img {
+      transition: 6s all ease-in!important;
+      transform: scale(1.2);
+    }
+  }
+  will-change: transform;
+}
+
+
+// Breakout Image
+
+@mixin breakout-image {
+  position: relative;
+  display: block;
+  max-width: none!important;
+  left: 50%;
+  right: 50%;
+  margin-left: -50vw;
+  // margin-right: -50vw; // with this enabled, for some reason the image is taken out of normal flow and appears
+  // under the title, as if postioined absolutely
+  width: auto!important;
+  padding: 0!important;
+}
+
+
+@mixin main-category-badge {
+        position: absolute;
+        display: block;
+        font-family: var(--widget-title-font);
+        text-transform: var(--widget-title-text-transform);
+        letter-spacing: var(--widget-title-letter-spacing);
+        font-size: var(--widget-title-font-size);
+        top: -4rem;
+        width: auto;
+        color: inherit;
+        background: var(--accent-color);
+        padding: 1rem;
+        font-weight: 600;
+        border-radius: .4em;
+            @include breakpoint(medium) {
+              top: -6rem;
+            }
+        &:before {
+          content: 'In:';
+          position: relative;
+          font-style: italic;
+          letter-spacing: 0;
+          text-transform: none;
+          background: transparent;
+          z-index: 100;
+          margin-right: .3rem;
+          display: inline-block;
+        }
+        &:after {
+          display: block;
+          content: '';
+          height: 1px;
+          position: relative;
+          width: auto;
+          border-bottom: 1px solid #fff;
+          margin-top: .4rem;
+        }
+}
+
+
+@mixin gradient-text($gradient, $bg : 'light') {
+  @supports(mix-blend-mode: lighten) {
+    display: inline-block;
+    position: relative;
+
+    &::before {
+      content: '';
+      display: block;
+      position: absolute;
+      top: 0; right: 0; bottom: 0; left: 0;
+
+      background: unquote($gradient);
+      pointer-events: none;
+    }
+
+    @if ($bg == 'light') {
+      color: #000;
+      background: #fff;
+      mix-blend-mode: multiply;
+
+      &::before {
+        mix-blend-mode: screen;
+      }
+    } @else {
+      color: #fff;
+      background: #000;
+      mix-blend-mode: lighten;
+
+      &::before {
+        mix-blend-mode: multiply;
+      }
+    }
+  }
+}
+
+
