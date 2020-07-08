@@ -26,7 +26,8 @@ var conventionalChangelog = require('gulp-conventional-changelog');
 var conventionalGithubReleaser = require('conventional-github-releaser');
 var criticalCss = require('gulp-penthouse');
 const minifycss = require( 'gulp-uglifycss' ); // Minifies CSS files.
-// const autoprefixer = require( 'gulp-autoprefixer' ); // Autoprefixing magic.
+const autoprefixer = require('autoprefixer');
+var postcss = require('gulp-postcss');
 const sourcemaps = require( 'gulp-sourcemaps' ); // Maps code in a compressed file (E.g. style.css) back to it’s original position in a source file (E.g. structure.scss, which was later combined with other css files to generate style.css).
 const beep = require( 'beepbeep' );
 const mmq = require( 'gulp-merge-media-queries' ); // Combine matching media queries into one.
@@ -113,9 +114,7 @@ function sass() {
       includePaths: PATHS.sass
     })
       .on('error', $.sass.logError))
-    .pipe($.autoprefixer({
-      browsers: COMPATIBILITY
-    }))
+    .pipe(postcss([autoprefixer()]))
 
     .pipe($.if(PRODUCTION, $.cleanCss({ compatibility: 'ie9' })))
     .pipe($.if(!PRODUCTION, $.sourcemaps.write()))
@@ -195,7 +194,7 @@ gulp.task('webpack:watch', webpack.watch);
 function images() {
   return gulp.src('src/assets/images/**/*')
     .pipe($.if(PRODUCTION, $.imagemin([
-      $.imagemin.jpegtran({
+      $.imagemin.mozjpeg({
         progressive: true,
       }),
       $.imagemin.optipng({
