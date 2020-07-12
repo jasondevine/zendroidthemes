@@ -23,6 +23,7 @@
 
 
 	<header class="cover-header site-header" id="cover-header" role="banner">
+
 			<!-- <div class="grid-container"> -->
 				<div class="grid-x grid-padding-x align-bottom">
 				<figure class="zt-logo cell medium-3 medium-offset-1">

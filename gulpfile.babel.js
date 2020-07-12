@@ -255,54 +255,48 @@ gulp.task('changelog', function () {
     .pipe(gulp.dest('./'));
 });
 
+
+
+
 // Bump version using semantic versioning
 // 
-// 
-// const bump = require('gulp-bump');
-
-gulp.task('bump-version', function () {
-// We hardcode the version change type to 'patch' but it may be a good idea to
-// use minimist (https://www.npmjs.com/package/minimist) to determine with a
-// command argument whether you are doing a 'major', 'minor' or a 'patch' change.
-  return gulp.src(['./package.json'])
-    .pipe(bump({type: "patch"}).on('error', gutil.log))
-    .pipe(gulp.dest('./'));
+// Will patch the version
+gulp.task('bump-patch', function(done){
+  gulp.src('./package.json')
+  .pipe(bump().on('error', gutil.log))
+  .pipe(gulp.dest('./'));
+  done();
+});
+ 
+// Defined method of updating:
+// Semantic minor
+gulp.task('bump-minor', function(done){
+  gulp.src('./package.json')
+  .pipe(bump({type:'minor'}).on('error', gutil.log))
+  .pipe(gulp.dest('./'));
+  done();
+});
+ 
+// Defined method of updating:
+// Semantic major
+gulp.task('bump-major', function(done){
+  gulp.src('./package.json')
+  .pipe(bump({type:'major'}).on('error', gutil.log))
+  .pipe(gulp.dest('./'));
+  done();
 });
 
 
-// gulp.task('bump', function () {
-//     /// <summary>
-//     /// It bumps revisions
-//     /// Usage:
-//     /// 1. gulp bump : bumps the package.json and bower.json to the next minor revision.
-//     ///   i.e. from 0.1.1 to 0.1.2
-//     /// 2. gulp bump --version 1.1.1 : bumps/sets the package.json and bower.json to the 
-//     ///    specified revision.
-//     /// 3. gulp bump --type major       : bumps 1.0.0 
-//     ///    gulp bump --type minor       : bumps 0.1.0
-//     ///    gulp bump --type patch       : bumps 0.0.2
-//     ///    gulp bump --type prerelease  : bumps 0.0.1-2
-//     /// </summary>
-
-//     var type = args.type;
-//     var version = args.version;
-//     var options = {};
-//     if (version) {
-//         options.version = version;
-//         msg += ' to ' + version;
-//     } else {
-//         options.type = type;
-//         msg += ' for a ' + type;
-//     }
 
 
-//     return gulp
-//         .src(['package.json'])
-//         .pipe(bump(options))
-//         .pipe(gulp.dest('.'));
+// gulp.task('bump-version', function () {
+// // We hardcode the version change type to 'patch' but it may be a good idea to
+// // use minimist (https://www.npmjs.com/package/minimist) to determine with a
+// // command argument whether you are doing a 'major', 'minor' or a 'patch' change.
+//   return gulp.src(['./package.json'])
+//     .pipe(bump({type: "patch"}).on('error', gutil.log))
+//     .pipe(gulp.dest('./'));
 // });
-
-
 
 
 // Start BrowserSync to preview the site in

@@ -18,9 +18,11 @@ function zt_enqueue_styles() {
    //      array( $parent_style ),
    //      wp_get_theme()->get('Version')
    //  );
+   //  
+   //  
 
     wp_enqueue_style( 'child-style',
-        get_stylesheet_directory_uri()  . '/dist/assets/css/app.css', wp_get_theme()->get('Version')
+        get_stylesheet_directory_uri() .  '/dist/assets/css/app.css', wp_get_theme()->get('Version')
     );
 
    wp_enqueue_script( 'child-scripts', get_stylesheet_directory_uri().'/dist/assets/js/app.js', array('jquery'), true );
