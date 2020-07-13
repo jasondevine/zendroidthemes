@@ -1,5 +1,6 @@
 import $ from 'jquery';
-import sal from 'sal.js'; //REMOVE THIS FROM DISTRIBUTION, ONLY REQ'D FOR DEMO COVER PAGE
+import slick from './lib/slickslider.js';
+import sal from './lib/sal.js'; //REMOVE THIS FROM DISTRIBUTION, ONLY REQ'D FOR DEMO COVER PAGE
 
 
 window.$ = $;
