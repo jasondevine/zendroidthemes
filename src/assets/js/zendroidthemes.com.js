@@ -6,6 +6,25 @@ import slick from './lib/slickslider.js';
 window.$ = $;
 
 
+
+// We need to add a button to close the mailchimp signup alert box as otherwise it just sits there
+// after the user interaction
+$(document).ready(function() {
+  // Find the alert element
+  var $mc4p_alert = $('.mc4wp-alert');
+  // Create the button with relevant classes
+  var closeButton = $('<i class="fas fa-window-close fa-2x close-alert"></i>');
+  // Append the button to the alert
+  $mc4p_alert.append(closeButton);
+  // Attach an event handler
+  closeButton.click(function() {
+    $mc4p_alert.fadeOut('slow', function() {
+    });
+  })
+});
+
+
+
 $(document).ready(function() {
     $('.blog-layout-slider').slick({
       infinite: true,

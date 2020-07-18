@@ -16,7 +16,7 @@ function zt_enqueue_styles() {
         get_stylesheet_directory_uri() . '/dist/assets/css/zendroidthemes.css', array(), $theme_version, 'all'
     );
 
-   wp_enqueue_script( 'child-scripts', get_stylesheet_directory_uri().'/dist/assets/js/zendroidthemes.com.9aa934.js', array('jquery'), true );
+   wp_enqueue_script( 'child-scripts', get_stylesheet_directory_uri().'/dist/assets/js/zendroidthemes.com.js', array('jquery'), true );
 
 
    // wp_enqueue_script('slick-slider', 'https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js', array('jquery'), true);

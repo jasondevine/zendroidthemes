@@ -1925,6 +1925,10 @@ h1 {
 }
 
 
+.footer {
+	transition: $mid-ease;
+}
+
 .mailchimp-form {
 	color: #fefefe;
 	padding-top: 6rem;
@@ -2032,7 +2036,6 @@ h1 {
 
 
 & .mc4wp-alert {
-	// display: block;
 	padding: 1rem 2rem;
 	background-color: #555;
 	font-weight: 600;
@@ -2086,6 +2089,12 @@ h1 {
 }
 
 } // end .mailchimp-form
+
+// This is the button I'm adding in js to close the MC alert box, as there's none natively it seems
+.close-alert {
+	position: absolute;
+	right: -.5rem;
+}
 
 
 

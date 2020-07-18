@@ -32,7 +32,7 @@ const plumber = require( 'gulp-plumber' ); // Prevent pipe breaking caused by er
 const notify = require( 'gulp-notify' ); // Sends message notification to you.
 const terser = require('gulp-terser'); // we need this for ES6 compatibility
 const filter = require( 'gulp-filter' ); // Enables you to work on a subset of the original files by filtering them using a glob.
-
+const webpackConfig = require('./webpack.config.js')
 // Load all Gulp plugins into one variable
 const $ = plugins();
 
@@ -49,7 +49,7 @@ const PRODUCTION = !!(yargs.argv.production);
 // Check for --development flag unminified with sourcemaps
 const DEV = !!(yargs.argv.dev);
 
-// Load settings from settings.yml
+// Load settings from config.yml
 const { BROWSERSYNC, COMPATIBILITY, REVISIONING, PATHS } = loadConfig();
 
 
@@ -193,6 +193,7 @@ const webpack = {
 
 gulp.task('webpack:build', webpack.build);
 gulp.task('webpack:watch', webpack.watch);
+
 
 // Copy images to the "dist" folder
 // In production, the images are compressed
