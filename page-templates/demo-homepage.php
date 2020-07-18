@@ -39,7 +39,7 @@ get_header('cover');
     
     
     <div class="cell small-10 small-offset-1 large-8 large-offset-1">
-        <?php echo do_shortcode( '[mc4wp_form id="4235"]' ) ?>
+        <?php echo do_shortcode( '[mc4wp_form id="24"]' ) ?>
     </div>
     
     

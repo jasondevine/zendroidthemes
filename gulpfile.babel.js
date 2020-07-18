@@ -124,8 +124,11 @@ function sass() {
 
 // Combine JavaScript into one file
 // In production, the file is minified
+const useVersioning = true;
+const ManifestPlugin = require('webpack-manifest-plugin');
 const webpack = {
   config: {
+
     module: {
       rules: [
         {
@@ -135,12 +138,17 @@ const webpack = {
         },
       ],
     },
+
     // plugins: [
-    //       new TerserPlugin(),
+    //     new ManifestPlugin(),
     // ],
-    externals: {
-      jquery: 'jQuery',
-    },
+
+    // output: {
+    // filename: useVersioning ? '[name].[hash:6].js' : '[name].js', // see https://symfonycasts.com/screencast/javascript-webpack/caching-versioning
+    // },
+    // externals: {
+    //   jquery: 'jQuery',
+    // },
   },
 
   changeHandler(err, stats) {

@@ -863,7 +863,7 @@ function zt_features_content_shortcode($atts, $content = null) {
 				<h1 class="theme-feature-title">Why settle for average ampersands?
 				</h1>
 				<p class="theme-feature-blurb">
-				It might be a small thing, but we felt it was worth doing.<span class="theme-feature-inline-image-container"><img src="<?php echo esc_url(get_stylesheet_directory_uri()) . '/library/images/cover-page/Amplifier-logo-sunset.png' ?>" class="theme-feature-inline-image" alt=""></span> has some clever code that seeks out all ampersands in titles and headings and replaces them with an SVG version of the best looking ampersand out there, no matter what font is chosen for the 
+				It might be a small thing, but we felt it was worth doing.<span class="theme-feature-inline-image-container"><img src="<?php echo esc_url(get_stylesheet_directory_uri()) . '/library/images/cover-page/Amplifier-logo-sunset.png' ?>" class="theme-feature-inline-image" alt=""></span> has some clever code that seeks out all ampersands in titles and headings and replaces them with an SVG version of the best looking ampersand out there, no matter what font is chosen for the rest.
 				</p>
 		</div>
 
@@ -885,7 +885,7 @@ function zt_features_content_shortcode($atts, $content = null) {
 		<div class="cell large-3 large-offset-1 theme-feature-description">
 				<i class="fas fa-flag strapline-image"></i>
 				<span class="strapline">Lose yourself in icons</span>
-				<h1 class="theme-feature-title">1,553 FontAwesome icons.
+				<h1 class="theme-feature-title">1,598 FontAwesome icons.
 				</h1>
 				<p class="theme-feature-blurb">
 				Includes the complete free set of the web's most popular icon font, Font Awesome.
