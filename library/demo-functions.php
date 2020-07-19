@@ -750,7 +750,7 @@ function zt_features_content_shortcode($atts, $content = null) {
 <div class="grid-x grid-padding-x align-left align-middle theme-feature-block" id="offcanvas-feature-block">
 	<div class="cell large-3 large-offset-1 theme-feature-description">
 			<i class="fas fa-bars strapline-image"></i>
-			<span class="strapline">It's the little things</span>
+			<span class="strapline">More space for your widgets.</span>
 			<h1 class="theme-feature-title">Off-canvas menu.
 			</h1>
 			<p class="theme-feature-blurb">
