@@ -2036,6 +2036,7 @@ h1 {
 
 
 & .mc4wp-alert {
+	display: none;
 	padding: 1rem 2rem;
 	background-color: #555;
 	font-weight: 600;
@@ -2059,6 +2060,12 @@ h1 {
 
 	 & p {
 		margin: 0;
+	}
+}
+
+& .mc4wp-alert-error {
+	&:after {
+		border-color: transparent transparent #b24592 transparent;
 	}
 }
 
@@ -2094,6 +2101,7 @@ h1 {
 .close-alert {
 	position: absolute;
 	right: -.5rem;
+	color: white;
 }
 
 
