@@ -649,7 +649,7 @@ function zt_features_content_shortcode($atts, $content = null) {
 			<h1 class="theme-feature-title">Beautiful on any device.
 			</h1>
 			<p class="theme-feature-blurb">
-			As of September 2019, <a href="">more than 51%</a> of all global internet traffic is mobile in origin. So it makes sense that unless you want to risk alienating over half your visitors, phone and tablet users need to be offered as polished an experience on your site as desktop users are used to getting. That's why
+			As of June 2020, <a href="https://gs.statcounter.com/platform-market-share/desktop-mobile-tablet">just over 50% (50.13%)</a> of all global internet traffic is mobile in origin. So it makes sense that unless you want to risk alienating over half your visitors, phone and tablet users need to be offered as polished an experience on your site as desktop users are used to getting. That's why
 			<span class="theme-feature-inline-image-container"><img src="<?php echo esc_url(get_stylesheet_directory_uri()) . '/library/images/cover-page/Amplifier-logo-sunset.png' ?>" class="theme-feature-inline-image" alt=""></span> was designed from day one to be fully responsive, and adapt to display perfectly on any device with any dimensions, all the while remaining as powerful as can be.
 			</p>
 		</div>
