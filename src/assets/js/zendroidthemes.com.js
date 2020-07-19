@@ -81,27 +81,6 @@ $(document).ajaxError(function() {
         };
 
 
-
-// $("#mc4wp-form-1").submit(function(e) {
- 
-//     var url = $(this).prop('action'); // the script where you handle the form input.
-//     $.ajax({
-//            type: "GET",
-//            url: url,
-//            data: jQuery("#mc-embedded-subscribe-form").serialize(), // serializes the form's elements.
-//            dataType: "jsonp",
-//            success: function(data)
-//            {
-//                 if(data.result == 'success') window.location.href = 'https://example.yourdomain.com/thank-you.html';
-//            }
-//          });
- 
-//     e.preventDefault(); // avoid to execute the actual submit of the form.
-// });
-
-
-
-
 $(document).ready(function() {
     $('.blog-layout-slider').slick({
       infinite: true,
