@@ -268,28 +268,28 @@ gulp.task('changelog', function () {
 
 
 // Bump version using semantic versioning
-// 
+//
 // Will patch the version
 gulp.task('bump-patch', function(done){
-  gulp.src('./package.json')
+  gulp.src(['./package.json','./style.css'])
   .pipe(bump().on('error', gutil.log))
   .pipe(gulp.dest('./'));
   done();
 });
- 
+
 // Defined method of updating:
 // Semantic minor
 gulp.task('bump-minor', function(done){
-  gulp.src('./package.json')
+  gulp.src(['./package.json','./style.css'])
   .pipe(bump({type:'minor'}).on('error', gutil.log))
   .pipe(gulp.dest('./'));
   done();
 });
- 
+
 // Defined method of updating:
 // Semantic major
 gulp.task('bump-major', function(done){
-  gulp.src('./package.json')
+  gulp.src(['./package.json','./style.css'])
   .pipe(bump({type:'major'}).on('error', gutil.log))
   .pipe(gulp.dest('./'));
   done();
@@ -324,7 +324,7 @@ function server(done) {
     open: false,
     reloadDelay: 0,
   });
-  //when css files change, reload browserSync 
+  //when css files change, reload browserSync
     // gulp.watch('dist/assets/css/*.css').on('change', function () {
     //     browser.reload();
     // });
