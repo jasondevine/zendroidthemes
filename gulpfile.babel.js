@@ -269,27 +269,27 @@ gulp.task('changelog', function () {
 
 // Bump version using semantic versioning
 //
-// Will patch the version
+// Will patch the version -- bugfixes etc.
 gulp.task('bump-patch', function(done){
-  gulp.src(['./package.json','./style.css'])
+  gulp.src(['./package.json','./style.css', './changelog.md'])
   .pipe(bump().on('error', gutil.log))
   .pipe(gulp.dest('./'));
   done();
 });
 
 // Defined method of updating:
-// Semantic minor
+// Semantic minor -- non-breaking features added or removed
 gulp.task('bump-minor', function(done){
-  gulp.src(['./package.json','./style.css'])
+  gulp.src(['./package.json','./style.css', './changelog.md'])
   .pipe(bump({type:'minor'}).on('error', gutil.log))
   .pipe(gulp.dest('./'));
   done();
 });
 
 // Defined method of updating:
-// Semantic major
+// Semantic major -- breaking features added or removed
 gulp.task('bump-major', function(done){
-  gulp.src(['./package.json','./style.css'])
+  gulp.src(['./package.json','./style.css', './changelog.md'])
   .pipe(bump({type:'major'}).on('error', gutil.log))
   .pipe(gulp.dest('./'));
   done();
@@ -313,8 +313,6 @@ function server(done) {
   browser.init({
     proxy: BROWSERSYNC.url,
     files: "dist/assets/css/*.css",
-    // files: "src/assets/scss/*.scss",
-
     ui: {
       port: 3001
     },

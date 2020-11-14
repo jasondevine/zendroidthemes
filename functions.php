@@ -11,7 +11,7 @@ add_action( 'wp_enqueue_scripts', 'zt_enqueue_styles' );
 function zt_enqueue_styles() {
 
 
-    $theme_version = wp_get_theme()->get('Version');
+    $theme_version = wp_get_theme()->get('Version'); // this takes the version number of the theme from style.css
     wp_enqueue_style( 'zendroidthemes-com',
         get_stylesheet_directory_uri() . '/dist/assets/css/zendroidthemes.css', array(), $theme_version, 'all'
     );
