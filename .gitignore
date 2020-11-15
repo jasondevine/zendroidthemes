@@ -133,7 +133,6 @@ wp-content/themes/twenty*/
 
 gulpfile.babel.js
 config-default.yml
-packaged/
 .babelrc
 package.json
 package-lock.json
